@@ -70,7 +70,7 @@ const ComingSoonSection = styled(BaseSection)`
 		@media (min-width: 540px) {
 			position: absolute;
 			height: 100%;
-			transform: translateY(55%);
+			transform: translateY(51%);
 			margin-top: 5rem;
 			left: 34%;
 			font-size: 165px;
@@ -122,7 +122,7 @@ const ImageTopContainer = styled(PictureFrame)`
 	height: 266px;
 	@media (min-width: 540px) {
 		position: absolute;
-		transform: translateY(-77px) rotate(0deg);
+		transform: translateY(-120px) rotate(0deg);
 		left: 18%;
 		width: 372px;
 		height: 305px;
@@ -139,7 +139,7 @@ const FeatureImageContainer = styled(PictureFrame)`
 		position: absolute;
 		width: 500px;
 		height: 352px;
-		transform: translateX(7%);
+		transform: translateX(2%);
 		top: 227px;
 	}
 `;
@@ -155,7 +155,7 @@ const ImageBottomContainer = styled(PictureFrame)`
 		position: absolute;
 		width: 300px;
 		height: 350px;
-		transform: translateY(110px) rotate(0deg);
+		transform: translateY(66px) rotate(0deg);
 		right: 14%;
 		top: 0;
 	}
@@ -168,19 +168,19 @@ export const ComingSoon = () => {
 		mm.add(mediaBreakpoints, (context: any) => {
 			const { reduceMotion, isDesktop } = context.conditions;
 			if (!reduceMotion && isDesktop) {
-				gsap.to('.image-top-container', {
-					y: '-55px',
-					ease: 'power4.easeOut',
-					scrollTrigger: {
-						// markers: true,
-						scrub: 0.05,
-						trigger: '.coming-soon-section',
-						start: '-=35%',
-						end: '+=50%',
-						invalidateOnRefresh: true,
-						fastScrollEnd: true,
-					},
-				});
+				// gsap.to('.image-top-container', {
+				// 	y: '-55px',
+				// 	ease: 'power4.easeOut',
+				// 	scrollTrigger: {
+				// 		// markers: true,
+				// 		scrub: 0.05,
+				// 		trigger: '.coming-soon-section',
+				// 		start: '-=35%',
+				// 		end: '+=50%',
+				// 		invalidateOnRefresh: true,
+				// 		fastScrollEnd: true,
+				// 	},
+				// });
 				gsap.to('.image-feature-container', {
 					x: '9%',
 					ease: 'power4.easeOut',
@@ -196,32 +196,33 @@ export const ComingSoon = () => {
 				});
 
 				gsap.to('.image-bottom-container', {
-					y: '146px',
+					y: '186px',
 					ease: 'power4.easeOut',
 					scrollTrigger: {
 						// markers: true,
 						scrub: 0.05,
 						trigger: '.coming-soon-section',
 						start: '-=35%',
-						end: '+=60%',
+						end: '+=120%',
 						invalidateOnRefresh: true,
 						fastScrollEnd: true,
 					},
 				});
 
-				gsap.to('.coming-soon-header', {
-					y: '51.0053%',
-					ease: 'power4.easeOut',
-					scrollTrigger: {
-						// markers: true,
-						scrub: 0.05,
-						trigger: '.coming-soon-section',
-						start: '-=5%',
-						end: '+=30%',
-						invalidateOnRefresh: true,
-						fastScrollEnd: true,
-					},
-				});
+				// gsap.to('.coming-soon-header', {
+				// 	y: '51.0053%',
+				// 	ease: 'power4.easeOut',
+				// 	duration: 0,
+				// 	scrollTrigger: {
+				// 		// markers: true,
+				// 		scrub: 0.05,
+				// 		trigger: '.coming-soon-section',
+				// 		start: '-=5%',
+				// 		end: '+=30%',
+				// 		invalidateOnRefresh: true,
+				// 		fastScrollEnd: true,
+				// 	},
+				// });
 			}
 		});
 		return () => mm.revert();

@@ -59,7 +59,7 @@ export const HeroBanner = () => {
 	return (
 		<HeroBannerContainer>
 			{/* <Figure id="videoContainer"> */}
-			<HeroVidBg className="hero-bkgd" ref={heroVid} autoPlay loop muted playsInline preload="metadata">
+			<HeroVidBg className="hero-bkgd" ref={heroVid} autoPlay loop muted playsInline preload="auto">
 				<source src="/hero_vid.mp4" type="video/mp4" />
 				Your browser does not support the video tag.
 			</HeroVidBg>
