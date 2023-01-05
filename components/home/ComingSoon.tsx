@@ -1,4 +1,4 @@
-import { useEffect, MutableRefObject } from 'react';
+import { useEffect } from 'react';
 import styled from 'styled-components';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
@@ -7,6 +7,7 @@ import featureImage from '../../public/row_feature.jpg';
 import rollImage2 from '../../public/row_1.jpg';
 import rollImage4 from '../../public/roll_4.jpg';
 import { BaseSection, BaseImage, PictureFrame } from '../../styles/globals';
+import { mediaBreakpoints } from '../../utils/animation/matchMedia';
 
 const ComingSoonSection = styled(BaseSection)`
 	display: flex;
@@ -15,6 +16,7 @@ const ComingSoonSection = styled(BaseSection)`
 	z-index: 10;
 	transform: translateY(0);
 	height: clamp(30rem, 160vh, 1240px);
+	box-shadow: 0px -2px 5px 0px rgba(0, 0, 0, 0.75);
 	background-color: white;
 	overflow: hidden;
 	&:before {
@@ -30,29 +32,70 @@ const ComingSoonSection = styled(BaseSection)`
 			rgba(255, 255, 255, 0.5) 50%,
 			rgba(255, 255, 255, 0.5) 100%
 		);
-		opacity: 0.1;
+		opacity: 0.3;
 	}
 	& h2 {
-		position: absolute;
+		position: relative;
 		display: flex;
 		flex-direction: column;
-		height: 100%;
-		transform: translateY(50%);
-		left: 36%;
-		font-size: 166px;
+		height: auto;
+		margin: 0;
+		margin-top: 8rem;
+		transform: translateY(0%);
 		font-weight: 900;
-		line-height: 130px;
+		font-size: 165px;
+		line-height: 79px;
+		text-align: center;
+
 		& .coming-to {
-			font-size: 56px;
-			line-height: 75px;
+			position: relative;
+			left: -55px;
+			font-size: 36px;
+			line-height: 44px;
 		}
 		& .lago {
-			letter-spacing: -0.5px;
+			font-size: 93px;
 			text-transform: uppercase;
+			position: relative;
+			left: -5px;
+			letter-spacing: 2.2px;
 		}
 		& .vista {
-			letter-spacing: 0.5px;
+			position: relative;
+			left: 0;
+			font-size: 98px;
 			text-transform: uppercase;
+			letter-spacing: -1.5px;
+		}
+
+		@media (min-width: 540px) {
+			position: absolute;
+			height: 100%;
+			transform: translateY(50%);
+			left: 34%;
+			font-size: 165px;
+			font-weight: 900;
+			line-height: 134px;
+			text-align: inherit;
+			& .coming-to {
+				left: 0px;
+				font-size: 53px;
+				line-height: 43px;
+			}
+
+			& .lago {
+				font-size: 165px;
+				text-transform: inherit;
+				position: relative;
+				left: 0;
+				letter-spacing: normal;
+			}
+			& .vista {
+				position: relative;
+				left: 39px;
+				font-size: 106%;
+				text-transform: inherit;
+			}
 		}
 	}
 `;
@@ -72,141 +115,114 @@ const ImagesContainer = styled.div`
 
 const ImageTopContainer = styled(PictureFrame)`
 	position: absolute;
-	transform: translateY(-77px);
-	left: 18%;
-	width: 372px;
-	height: 305px;
-`;
-
-const ImageTop = styled(BaseImage)`
-	object-position: 52% 0%;
-	/* scale: 1.1; */
+	transform: translateY(-166px) rotate(-5deg);
+	width: 67%;
+	left: -70px;
+	height: 266px;
+	@media (min-width: 540px) {
+		transform: translateY(-77px) rotate(-2deg);
+		left: 18%;
+		width: 372px;
+		height: 305px;
+	}
 `;
 
 const FeatureImageContainer = styled(PictureFrame)`
-	position: absolute;
-	width: 500px;
-	height: 352px;
-	transform: translateX(7%);
-	top: 227px;
-	will-change: transform;
-`;
-
-const ImageFeature = styled(BaseImage)`
-	object-position: 125% 0%;
-	/* scale: 1.2; */
+	position: relative;
+	width: 85%;
+	height: 30vh;
+	top: 81px;
+	margin: 0 auto;
+	@media (min-width: 540px) {
+		position: absolute;
+		width: 500px;
+		height: 352px;
+		transform: translateX(7%);
+		top: 227px;
+	}
 `;
 
 const ImageBottomContainer = styled(PictureFrame)`
 	position: absolute;
-	width: 300px;
-	height: 350px;
-	transform: translateY(110px);
-	right: 14%;
+	width: 222px;
+	height: 271px;
+	transform: translateY(110px) rotate(7deg);
+	right: 1%;
+	top: -63px;
+	@media (min-width: 540px) {
+		width: 300px;
+		height: 350px;
+		transform: translateY(110px) rotate(0deg);
+		right: 14%;
+	}
 `;
 
 const ImageBottom = styled(BaseImage)`
 	object-position: 0% 86%;
 `;
 
-export const ComingSoon = ({ video }: { video: MutableRefObject<HTMLVideoElement | null> }) => {
+export const ComingSoon = () => {
 	gsap.registerPlugin(ScrollTrigger);
 	useEffect(() => {
 		const mm = gsap.matchMedia();
-		mm.add('(min-width: 800px)', () => {
-			gsap.to('.coming-soon-section', {
-				y: '0%',
-				scrollTrigger: {
-					// markers: true,
-					scrub: true,
-					trigger: '.coming-soon-section',
-					start: '-=40%',
-					end: '+=60%',
-					onToggle: (self) => (self.isActive ? video.current?.pause() : video.current?.play()),
-				},
-			});
-			gsap.to('.image-top-container', {
-				y: '-55px',
-				ease: 'power4.easeIn',
-				scrollTrigger: {
-					// markers: true,
-					scrub: 0.05,
-					trigger: '.coming-soon-section',
-					start: '-=30%',
-					end: '+=30%',
-					invalidateOnRefresh: true,
-					// fastScrollEnd: true,
-				},
-			});
-			gsap.to('.image-feature-container', {
-				x: '9%',
-				ease: 'power4.easeIn',
-				scrollTrigger: {
-					// markers: true,
-					scrub: 0.05,
-					trigger: '.coming-soon-section',
-					start: '-=30%',
-					end: '+=30%',
-					invalidateOnRefresh: true,
-					// fastScrollEnd: true,
-				},
-			});
+		mm.add(mediaBreakpoints, (context) => {
+			const { reduceMotion, isDesktop } = context.conditions;
+			if (!reduceMotion && isDesktop) {
+				gsap.to('.image-top-container', {
+					y: '-55px',
+					ease: 'power4.easeIn',
+					scrollTrigger: {
+						// markers: true,
+						scrub: 0.05,
+						trigger: '.coming-soon-section',
+						start: '-=35%',
+						end: '+=50%',
+						invalidateOnRefresh: true,
+						fastScrollEnd: true,
+					},
+				});
+				gsap.to('.image-feature-container', {
+					x: '9%',
+					ease: 'power4.easeIn',
+					scrollTrigger: {
+						// markers: true,
+						scrub: 0.05,
+						trigger: '.coming-soon-section',
+						start: '-=35%',
+						end: '+=50%',
+						invalidateOnRefresh: true,
+						fastScrollEnd: true,
+					},
+				});
 
-			gsap.to('.image-feature', {
-				objectPosition: '95% 0%',
-				ease: 'power4.easeIn',
-				overwrite: 'auto',
-				scrollTrigger: {
-					// markers: true,
-					scrub: 0.05,
-					trigger: '.coming-soon-section',
-					start: '-=30%',
-					end: '+=30%',
-					invalidateOnRefresh: true,
-					// fastScrollEnd: true,
-				},
-			});
-			gsap.to('.image-bottom-container', {
-				y: '146px',
-				ease: 'power4.easeIn',
-				scrollTrigger: {
-					// markers: true,
-					scrub: 0.05,
-					trigger: '.coming-soon-section',
-					start: '-=30%',
-					end: '+=20%',
-					invalidateOnRefresh: true,
-					// fastScrollEnd: true,
-				},
-			});
+				gsap.to('.image-bottom-container', {
+					y: '146px',
+					ease: 'power4.easeIn',
+					scrollTrigger: {
+						// markers: true,
+						scrub: 0.05,
+						trigger: '.coming-soon-section',
+						start: '-=35%',
+						end: '+=60%',
+						invalidateOnRefresh: true,
+						fastScrollEnd: true,
+					},
+				});
 
-			gsap.to('.image-bottom', {
-				objectPosition: '0% 0%',
-				ease: 'power4.easeIn',
-				overwrite: 'auto',
-				scrollTrigger: {
-					// markers: true,
-					scrub: 0.05,
-					trigger: '.coming-soon-section',
-					start: '-=30%',
-					end: '+=20%',
-					invalidateOnRefresh: true,
-					fastScrollEnd: true,
-				},
-			});
-			gsap.to('.coming-soon-header', {
-				y: '45.9%',
-				ease: 'power4.easeIn',
-				scrollTrigger: {
-					// markers: true,
-					scrub: 0.05,
-					trigger: '.coming-soon-section',
-					start: '-=20%',
-					end: '+=30%',
-					invalidateOnRefresh: true,
-					// fastScrollEnd: true,
-				},
-			});
+				gsap.to('.coming-soon-header', {
+					y: '45%',
+					ease: 'power4.easeIn',
+					scrollTrigger: {
+						// markers: true,
+						scrub: 0.05,
+						trigger: '.coming-soon-section',
+						start: '-=20%',
+						end: '+=70%',
+						invalidateOnRefresh: true,
+						fastScrollEnd: true,
+					},
+				});
+			}
 		});
 		return () => mm.revert();
 	}, []);
@@ -221,12 +237,12 @@ export const ComingSoon = ({ video }: { video: MutableRefObject<HTMLVideoElement
 				<ImagesContainer>
 					<div style={{ filter: 'drop-shadow(0px 2px 15px rgba(50, 50, 0, 0.5))' }}>
 						<ImageTopContainer className="image-top-container">
-							<ImageTop className="image-top" src={rollImage2} alt="Roll image" />
+							<BaseImage className="image-top" src={rollImage2} alt="Roll image" />
 						</ImageTopContainer>
 					</div>
 					<div style={{ filter: 'drop-shadow(0px 2px 15px rgba(50, 50, 0, 0.5))' }}>
 						<FeatureImageContainer className="image-feature-container">
-							<ImageFeature className="image-feature" src={featureImage} alt="Row image" />
+							<BaseImage className="image-feature" src={featureImage} alt="Row image" />
 						</FeatureImageContainer>
 					</div>
 					<div style={{ filter: 'drop-shadow(0px 2px 15px rgba(50, 50, 0, 0.5))' }}>

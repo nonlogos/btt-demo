@@ -1,7 +1,4 @@
-import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Head from 'next/head';
 
 import { MainHeader } from '../components';
@@ -25,19 +22,6 @@ const Footer = styled.footer`
 `;
 
 export default function Home() {
-	const heroVid = useRef<HTMLVideoElement | null>(null);
-
-	useEffect(() => {
-		if (typeof window !== undefined) {
-			console.log('window', window);
-			gsap.registerPlugin(ScrollTrigger);
-		}
-		if (heroVid.current) {
-			heroVid.current.play();
-		}
-		return () => ScrollTrigger.refresh();
-	}, []);
-
 	return (
 		<div>
 			<Head>
@@ -55,8 +39,8 @@ export default function Home() {
 
 			<Main>
 				<MainHeader />
-				<HeroBanner ref={heroVid} />
-				<ComingSoon video={heroVid} />
+				<HeroBanner />
+				<ComingSoon />
 				<IntroSection />
 				<BioSection />
 				<ContactUs />

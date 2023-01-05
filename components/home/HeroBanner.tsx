@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 
@@ -9,10 +9,10 @@ const HeroBannerContainer = styled.section`
 	height: clamp(10rem, 100vh, 1600px);
 	width: 100vw;
 	@media (max-width: 800px) {
-		height: 25vh;
+		height: 35vmax;
 	}
 	@media (min-width: 1921px) {
-		height: 45vh;
+		height: 45vmax;
 	}
 `;
 
@@ -43,10 +43,18 @@ const TitleComponents = styled.div`
 	z-index: 2;
 `;
 
-export const HeroBanner = forwardRef<HTMLVideoElement>((_, ref) => {
+export const HeroBanner = () => {
+	const heroVid = useRef<HTMLVideoElement | null>(null);
+
+	useEffect(() => {
+		if (heroVid.current) {
+			heroVid.current.play();
+		}
+	}, []);
+
 	return (
 		<HeroBannerContainer>
-			<HeroVidBg className="hero-bkgd" ref={ref} autoPlay={false} muted loop>
+			<HeroVidBg className="hero-bkgd" ref={heroVid} autoPlay={false} muted loop>
 				<source src="hero_vid.mp4" type="video/mp4" />
 			</HeroVidBg>
 			<TitleComponents>
@@ -54,4 +62,4 @@ export const HeroBanner = forwardRef<HTMLVideoElement>((_, ref) => {
 			</TitleComponents>
 		</HeroBannerContainer>
 	);
-});
+};

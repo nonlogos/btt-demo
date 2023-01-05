@@ -29,7 +29,6 @@ const BioImage = styled(Image)`
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-	object-position: 62% 0%;
 `;
 
 const BioContent = styled.div`
@@ -66,17 +65,6 @@ export const BioSection = () => {
 		mm.add(mediaBreakpoints, (context) => {
 			const { reduceMotion } = context.conditions;
 			if (!reduceMotion) {
-				gsap.to('.bio-image', {
-					objectPosition: '50% 0%',
-					ease: 'power3.In',
-					scrollTrigger: {
-						// markers: true,
-						scrub: 0.05,
-						trigger: '.bio-section',
-						start: '-=90%',
-						end: '+=50%',
-					},
-				});
 				gsap.to('.content', {
 					y: 0,
 					stagger: 0.1,
@@ -87,6 +75,7 @@ export const BioSection = () => {
 						trigger: '.bio-section',
 						start: '-=80%',
 						end: '+=50%',
+						fastScrollEnd: true,
 					},
 				});
 				gsap.to('.content', {
@@ -99,7 +88,17 @@ export const BioSection = () => {
 						trigger: '.bio-section',
 						start: '-=70%',
 						end: '+=50%',
+						fastScrollEnd: true,
 					},
+				});
+			} else {
+				gsap.to('.content', {
+					y: 0,
+					duration: 0,
+				});
+				gsap.to('.content', {
+					autoAlpha: 1,
+					duration: 0,
 				});
 			}
 		});

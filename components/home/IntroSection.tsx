@@ -11,7 +11,7 @@ const IntroContainer = styled(BaseSection)`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	transform: translateY(-5vh);
+	transform: translateY(-3vh);
 	width: 100%;
 `;
 const IntroImageContainer = styled.div`
@@ -82,7 +82,7 @@ export const IntroSection = () => {
 					ease: 'power3.out',
 					scrollTrigger: {
 						// markers: true,
-						scrub: 0.05,
+						scrub: reduceMotion ? false : 0.05,
 						trigger: '.coming-soon-section',
 						start: 'bottom 30%',
 						end: '+=100%',
@@ -101,6 +101,16 @@ export const IntroSection = () => {
 						end: '+=70%',
 						invalidateOnRefresh: true,
 					},
+				});
+			} else {
+				gsap.to('.image', {
+					y: '-10%',
+					duration: 0,
+				});
+				gsap.to('.intro-content', {
+					y: 0,
+					autoAlpha: 1,
+					duration: 0,
 				});
 			}
 		});

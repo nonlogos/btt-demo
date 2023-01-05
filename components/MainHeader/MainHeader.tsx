@@ -45,8 +45,8 @@ export const MainHeader = () => {
 				scrollTrigger: {
 					markers: false,
 					trigger: '.hero-bkgd',
-					start: '+=20%',
-					end: '+=30%',
+					start: '+=1%',
+					end: '+=10%',
 					toggleActions: 'play none none reverse',
 				},
 			});
