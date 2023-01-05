@@ -165,7 +165,7 @@ export const ComingSoon = () => {
 	gsap.registerPlugin(ScrollTrigger);
 	useEffect(() => {
 		const mm = gsap.matchMedia();
-		mm.add(mediaBreakpoints, (context) => {
+		mm.add(mediaBreakpoints, (context: any) => {
 			const { reduceMotion, isDesktop } = context.conditions;
 			if (!reduceMotion && isDesktop) {
 				gsap.to('.image-top-container', {

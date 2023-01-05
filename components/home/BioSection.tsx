@@ -62,7 +62,7 @@ export const BioSection = () => {
 
 	useEffect(() => {
 		const mm = gsap.matchMedia();
-		mm.add(mediaBreakpoints, (context) => {
+		mm.add(mediaBreakpoints, (context: any) => {
 			const { reduceMotion } = context.conditions;
 			if (!reduceMotion) {
 				gsap.to('.content', {

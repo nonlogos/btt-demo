@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import { BaseSection, SectionHeader } from '../../styles/globals';
 import { mediaBreakpoints } from '../../utils/animation/matchMedia';
+import { AnyNaptrRecord } from 'dns';
 
 const IntroContainer = styled(BaseSection)`
 	position: fixed;
@@ -74,7 +75,7 @@ export const IntroSection = () => {
 	gsap.registerPlugin(ScrollTrigger);
 	useEffect(() => {
 		const mm = gsap.matchMedia();
-		mm.add(mediaBreakpoints, (context) => {
+		mm.add(mediaBreakpoints, (context: any) => {
 			const { reduceMotion } = context.conditions;
 			if (!reduceMotion) {
 				gsap.to('.image', {
