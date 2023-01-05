@@ -14,7 +14,7 @@ const ComingSoonSection = styled(BaseSection)`
 	flex-direction: column;
 	position: relative;
 	z-index: 10;
-	height: clamp(30rem, 160vh, 1240px);
+	height: clamp(30rem, 160vmax, 1240px);
 	box-shadow: 0px -2px 5px 0px rgba(0, 0, 0, 0.75);
 	background-color: white;
 	/* overflow: hidden; */
@@ -39,7 +39,7 @@ const ComingSoonSection = styled(BaseSection)`
 		flex-direction: column;
 		height: auto;
 		margin: 0;
-		margin-top: 8rem;
+		margin-top: 0;
 		transform: translateY(46.0053%);
 		font-weight: 900;
 		font-size: 165px;
@@ -70,7 +70,8 @@ const ComingSoonSection = styled(BaseSection)`
 		@media (min-width: 540px) {
 			position: absolute;
 			height: 100%;
-			transform: translateY(53%);
+			transform: translateY(55%);
+			margin-top: 5rem;
 			left: 34%;
 			font-size: 165px;
 			font-weight: 900;
@@ -113,13 +114,15 @@ const ImagesContainer = styled.div`
 `;
 
 const ImageTopContainer = styled(PictureFrame)`
-	position: absolute;
-	transform: translateY(-166px) rotate(-5deg);
+	position: relative;
+	transform: translateY(-166px) rotate(-2deg);
 	width: 67%;
+	top: 9vh;
 	left: -70px;
 	height: 266px;
 	@media (min-width: 540px) {
-		transform: translateY(-77px) rotate(-2deg);
+		position: absolute;
+		transform: translateY(-77px) rotate(0deg);
 		left: 18%;
 		width: 372px;
 		height: 305px;
@@ -130,7 +133,7 @@ const FeatureImageContainer = styled(PictureFrame)`
 	position: relative;
 	width: 85%;
 	height: 30vh;
-	top: 81px;
+	top: -13vh;
 	margin: 0 auto;
 	@media (min-width: 540px) {
 		position: absolute;
@@ -145,20 +148,17 @@ const ImageBottomContainer = styled(PictureFrame)`
 	position: relative;
 	width: 222px;
 	height: 271px;
-	transform: translateY(110px) rotate(7deg);
-	right: -43%;
-	top: -6vh;
+	transform: translateY(110px) rotate(2deg);
+	right: -33%;
+	top: -28vh;
 	@media (min-width: 540px) {
 		position: absolute;
 		width: 300px;
 		height: 350px;
 		transform: translateY(110px) rotate(0deg);
 		right: 14%;
+		top: 0;
 	}
-`;
-
-const ImageBottom = styled(BaseImage)`
-	object-position: 0% 86%;
 `;
 
 export const ComingSoon = () => {
@@ -210,14 +210,14 @@ export const ComingSoon = () => {
 				});
 
 				gsap.to('.coming-soon-header', {
-					y: '46.0053%',
+					y: '51.0053%',
 					ease: 'power4.easeOut',
 					scrollTrigger: {
 						// markers: true,
 						scrub: 0.05,
 						trigger: '.coming-soon-section',
-						start: '-=20%',
-						end: '+=70%',
+						start: '-=5%',
+						end: '+=30%',
 						invalidateOnRefresh: true,
 						fastScrollEnd: true,
 					},
@@ -247,7 +247,7 @@ export const ComingSoon = () => {
 					</div>
 					<div style={{ filter: 'drop-shadow(0px 2px 15px rgba(50, 50, 0, 0.5))' }}>
 						<ImageBottomContainer className="image-bottom-container">
-							<ImageBottom className="image-bottom" src={rollImage4} alt="Roll image" />
+							<BaseImage className="image-bottom" src={rollImage4} alt="Roll image" />
 						</ImageBottomContainer>
 					</div>
 				</ImagesContainer>

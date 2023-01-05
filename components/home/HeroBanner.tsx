@@ -31,6 +31,7 @@ const HeroVidBg = styled.video`
 	width: 100%;
 	height: 100%;
 	z-index: 99;
+	background: black;
 `;
 
 const LogoImage = styled(Image)`
@@ -57,18 +58,18 @@ export const HeroBanner = () => {
 
 	return (
 		<HeroBannerContainer>
-			<Figure id="videoContainer">
-				<HeroVidBg className="hero-bkgd" ref={heroVid} autoPlay loop muted playsInline preload="metadata">
-					<source src="/hero_vid.mp4" type="video/mp4" />
-					Your browser does not support the video tag.
-				</HeroVidBg>
-				<TitleComponents>
-					<LogoImage src={logoBannerImage} alt="BTT Lago Vista logo" />
-				</TitleComponents>
-			</Figure>
+			{/* <Figure id="videoContainer"> */}
+			<HeroVidBg className="hero-bkgd" ref={heroVid} autoPlay loop muted playsInline preload="metadata">
+				<source src="/hero_vid.mp4" type="video/mp4" />
+				Your browser does not support the video tag.
+			</HeroVidBg>
+			<TitleComponents>
+				<LogoImage src={logoBannerImage} alt="BTT Lago Vista logo" />
+			</TitleComponents>
+			{/* </Figure>
 			<figcaption>
 				&copy; Blender Foundation |<a href="http://mango.blender.org">mango.blender.org</a>
-			</figcaption>
+			</figcaption> */}
 		</HeroBannerContainer>
 	);
 };

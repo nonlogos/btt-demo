@@ -43,7 +43,7 @@ export const MainHeader = () => {
 				duration: 0.2,
 				ease: 'power3.out',
 				scrollTrigger: {
-					markers: false,
+					// markers: true,
 					trigger: '.hero-bkgd',
 					start: '+=1%',
 					end: '+=10%',
