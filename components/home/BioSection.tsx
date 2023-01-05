@@ -73,7 +73,7 @@ export const BioSection = () => {
 					stagger: 0.1,
 					ease: 'power3.Out',
 					scrollTrigger: {
-						markers: true,
+						// markers: true,
 						scrub: 0.05,
 						trigger: '.bio-section',
 						start: `${isMobile ? '-=40%' : '-=80%'}`,
@@ -86,7 +86,7 @@ export const BioSection = () => {
 					stagger: 0.1,
 					ease: 'power3.Out',
 					scrollTrigger: {
-						markers: true,
+						// markers: true,
 						scrub: 0.05,
 						trigger: '.bio-section',
 						start: `${isMobile ? '-=35%' : '-=70%'}`,
