@@ -36,7 +36,7 @@ const HeroVidBg = styled.video`
 
 const LogoImage = styled(Image)`
 	width: auto;
-	max-height: clamp(2rem, 7vw, 7rem);
+	max-height: clamp(2rem, 8vmin, 5rem);
 	border: white solid 5px;
 	box-shadow: 0px 2px 16px 8px rgba(0, 0, 0, 0.65);
 `;
@@ -53,6 +53,25 @@ const TitleComponents = styled.div`
 	z-index: 100;
 `;
 
+const Title = styled.h2`
+	display: flex;
+	flex-direction: column;
+	margin: 4vmin 0;
+	color: white;
+	font-size: min(6vmin, 59.4px);
+	text-shadow: black 2px 0 15px;
+	& .champions,
+	& .mat {
+		display: block;
+	}
+
+	& .champions {
+		font-size: min(10vmin, 99px);
+		line-height: min(15vmin, 140px);
+		letter-spacing: 2.2px;
+	}
+`;
+
 export const HeroBanner = () => {
 	const heroVid = useRef<HTMLVideoElement | null>(null);
 
@@ -65,6 +84,10 @@ export const HeroBanner = () => {
 			</HeroVidBg>
 			<TitleComponents>
 				<LogoImage src={logoBannerImage} alt="BTT Lago Vista logo" />
+				<Title>
+					<span className="champions">Champions</span>
+					<span className="mat">on and off the mat</span>
+				</Title>
 			</TitleComponents>
 			{/* </Figure>
 			<figcaption>

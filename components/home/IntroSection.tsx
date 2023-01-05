@@ -5,7 +5,6 @@ import styled from 'styled-components';
 
 import { BaseSection, SectionHeader } from '../../styles/globals';
 import { mediaBreakpoints } from '../../utils/animation/matchMedia';
-import { AnyNaptrRecord } from 'dns';
 
 const IntroContainer = styled(BaseSection)`
 	position: fixed;
@@ -15,6 +14,7 @@ const IntroContainer = styled(BaseSection)`
 	transform: 0;
 	width: 100%;
 	transform: translateY(-3vh);
+	z-index: 0;
 `;
 const IntroImageContainer = styled.div`
 	position: relative;
@@ -53,7 +53,7 @@ const IntroText = styled.div`
 	display: flex;
 	flex-direction: column;
 	padding: 2rem;
-	z-index: 3;
+	z-index: 5;
 	opacity: 0;
 	text-align: center;
 	transform: translateY(200px);

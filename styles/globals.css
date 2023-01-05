@@ -19,16 +19,17 @@ body {
 h1,
 h2,
 h3 {
-	font-family: 'Manrope', sans-serif;
+	font-family: 'Oswald', sans-serif;
 }
 
 h1,
 h2 {
 	font-weight: 600;
+	text-transform: uppercase;
 }
 
 h2 {
-	font-size: clamp(1.5rem, 6.6vmin, 72px);
+	font-size: clamp(1.5rem, 8vmin, 72px);
 }
 
 p {

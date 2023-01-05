@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export const BaseSection = styled.div`
 	position: relative;
-	height: clamp(10rem, 90vh, 60rem);
+	height: clamp(10rem, 90vmin, 60rem);
 	@media (min-width: 1921px) {
 		height: 70vh;
 	}
