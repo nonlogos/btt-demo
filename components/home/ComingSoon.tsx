@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
-import featureImage from '../../public/row_feature.jpg';
-import rollImage2 from '../../public/row_1.jpg';
+import featureImage from '../../public/roll_feature.jpg';
+import rollImage2 from '../../public/roll_1.jpg';
 import rollImage4 from '../../public/roll_4.jpg';
 import { BaseSection, BaseImage, PictureFrame } from '../../styles/globals';
 import { mediaBreakpoints } from '../../utils/animation/matchMedia';
@@ -242,12 +242,12 @@ export const ComingSoon = () => {
 					</div>
 					<div style={{ filter: 'drop-shadow(0px 2px 15px rgba(50, 50, 0, 0.5))' }}>
 						<FeatureImageContainer className="image-feature-container">
-							<BaseImage className="image-feature" src={featureImage} alt="Row image" />
+							<BaseImage className="image-feature" src={featureImage} alt="Roll image" />
 						</FeatureImageContainer>
 					</div>
 					<div style={{ filter: 'drop-shadow(0px 2px 15px rgba(50, 50, 0, 0.5))' }}>
 						<ImageBottomContainer className="image-bottom-container">
-							<ImageBottom className="image-bottom" src={rollImage4} alt="Row image" />
+							<ImageBottom className="image-bottom" src={rollImage4} alt="Roll image" />
 						</ImageBottomContainer>
 					</div>
 				</ImagesContainer>

@@ -6,7 +6,7 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
 import { mediaBreakpoints } from '../../utils/animation/matchMedia';
 import { BaseSection } from '../../styles/globals';
-import bioImage from '../../public/PHOTO-2022-12-20-10-47-37.jpg';
+import bioImage from '../../public/bio.jpg';
 
 const Container = styled(BaseSection)`
 	position: relative;
