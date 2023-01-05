@@ -16,12 +16,21 @@ const HeroBannerContainer = styled.section`
 	}
 `;
 
+const Figure = styled.figure`
+	object-fit: cover;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	z-index: 99;
+	margin: 0;
+`;
+
 const HeroVidBg = styled.video`
 	object-fit: cover;
 	position: relative;
 	width: 100%;
 	height: 100%;
-	z-index: 1;
+	z-index: 99;
 `;
 
 const LogoImage = styled(Image)`
@@ -40,26 +49,26 @@ const TitleComponents = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	z-index: 2;
+	z-index: 100;
 `;
 
 export const HeroBanner = () => {
 	const heroVid = useRef<HTMLVideoElement | null>(null);
 
-	useEffect(() => {
-		if (heroVid.current) {
-			heroVid.current.play();
-		}
-	}, []);
-
 	return (
 		<HeroBannerContainer>
-			<HeroVidBg className="hero-bkgd" ref={heroVid} autoPlay={false} muted loop>
-				<source src="hero_vid.mp4" type="video/mp4" />
-			</HeroVidBg>
-			<TitleComponents>
-				<LogoImage src={logoBannerImage} alt="BTT Lago Vista logo" />
-			</TitleComponents>
+			<Figure id="videoContainer">
+				<HeroVidBg className="hero-bkgd" ref={heroVid} autoPlay loop muted playsInline preload="metadata">
+					<source src="/hero_vid.mp4" type="video/mp4" />
+					Your browser does not support the video tag.
+				</HeroVidBg>
+				<TitleComponents>
+					<LogoImage src={logoBannerImage} alt="BTT Lago Vista logo" />
+				</TitleComponents>
+			</Figure>
+			<figcaption>
+				&copy; Blender Foundation |<a href="http://mango.blender.org">mango.blender.org</a>
+			</figcaption>
 		</HeroBannerContainer>
 	);
 };

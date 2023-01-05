@@ -68,6 +68,10 @@ const SocialMediaLink = styled.a`
 
 const ContactUsMapSection = styled.div`
 	background: hsl(240, 11.1%, 96.5%);
+	grid-row-end: 1;
+	@media (min-width: 800px) {
+		grid-row-end: auto;
+	}
 `;
 
 export const ContactUs = () => {
@@ -82,13 +86,13 @@ export const ContactUs = () => {
 
 				<ContactDetails className="contact-details">
 					<ContactDetailItem>
-						<MdEmail size="42px" />
+						<MdEmail size="32px" />
 						<a href="mailto:bttlagovista@gmail.com?subject = New Inquiry&body= Hi I'd like to find out more">
 							bttlagovista@gmail.com
 						</a>
 					</ContactDetailItem>
 					<ContactDetailItem>
-						<BsFillPhoneFill size="42px" />
+						<BsFillPhoneFill size="32px" />
 						<span>555-555-5555</span>
 					</ContactDetailItem>
 				</ContactDetails>

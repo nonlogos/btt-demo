@@ -12,8 +12,9 @@ const IntroContainer = styled(BaseSection)`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	transform: translateY(-3vh);
+	transform: 0;
 	width: 100%;
+	transform: translateY(-3vh);
 `;
 const IntroImageContainer = styled.div`
 	position: relative;
@@ -24,8 +25,9 @@ const IntroImageContainer = styled.div`
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
 	background-size: cover;
-	transform: translateY(8%);
+	transform: translateY(-10%);
 	@media (min-width: 800px) {
+		transform: translateY(8%);
 		background-position: 50% 20%;
 	}
 	@media (min-width: 1921px) {
@@ -76,20 +78,23 @@ export const IntroSection = () => {
 	useEffect(() => {
 		const mm = gsap.matchMedia();
 		mm.add(mediaBreakpoints, (context: any) => {
-			const { reduceMotion } = context.conditions;
+			const { reduceMotion, isMobile } = context.conditions;
 			if (!reduceMotion) {
-				gsap.to('.image', {
-					y: '-10%',
-					ease: 'power3.out',
-					scrollTrigger: {
-						// markers: true,
-						scrub: reduceMotion ? false : 0.05,
-						trigger: '.coming-soon-section',
-						start: 'bottom 30%',
-						end: '+=100%',
-						invalidateOnRefresh: true,
-					},
-				});
+				if (!isMobile) {
+					gsap.to('.image', {
+						y: '-10%',
+						ease: 'power3.out',
+						scrollTrigger: {
+							// markers: true,
+							scrub: 0.05,
+							trigger: '.coming-soon-section',
+							start: 'bottom 30%',
+							end: '+=100%',
+							invalidateOnRefresh: true,
+						},
+					});
+				}
+
 				gsap.to('.intro-content', {
 					y: 0,
 					autoAlpha: 1,

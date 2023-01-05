@@ -14,11 +14,10 @@ const ComingSoonSection = styled(BaseSection)`
 	flex-direction: column;
 	position: relative;
 	z-index: 10;
-	transform: translateY(0);
 	height: clamp(30rem, 160vh, 1240px);
 	box-shadow: 0px -2px 5px 0px rgba(0, 0, 0, 0.75);
 	background-color: white;
-	overflow: hidden;
+	/* overflow: hidden; */
 	&:before {
 		content: '';
 		height: 100%;
@@ -41,7 +40,7 @@ const ComingSoonSection = styled(BaseSection)`
 		height: auto;
 		margin: 0;
 		margin-top: 8rem;
-		transform: translateY(0%);
+		transform: translateY(46.0053%);
 		font-weight: 900;
 		font-size: 165px;
 		line-height: 79px;
@@ -71,7 +70,7 @@ const ComingSoonSection = styled(BaseSection)`
 		@media (min-width: 540px) {
 			position: absolute;
 			height: 100%;
-			transform: translateY(50%);
+			transform: translateY(53%);
 			left: 34%;
 			font-size: 165px;
 			font-weight: 900;
@@ -143,13 +142,14 @@ const FeatureImageContainer = styled(PictureFrame)`
 `;
 
 const ImageBottomContainer = styled(PictureFrame)`
-	position: absolute;
+	position: relative;
 	width: 222px;
 	height: 271px;
 	transform: translateY(110px) rotate(7deg);
-	right: 1%;
-	top: -63px;
+	right: -43%;
+	top: -6vh;
 	@media (min-width: 540px) {
+		position: absolute;
 		width: 300px;
 		height: 350px;
 		transform: translateY(110px) rotate(0deg);
@@ -170,7 +170,7 @@ export const ComingSoon = () => {
 			if (!reduceMotion && isDesktop) {
 				gsap.to('.image-top-container', {
 					y: '-55px',
-					ease: 'power4.easeIn',
+					ease: 'power4.easeOut',
 					scrollTrigger: {
 						// markers: true,
 						scrub: 0.05,
@@ -183,12 +183,12 @@ export const ComingSoon = () => {
 				});
 				gsap.to('.image-feature-container', {
 					x: '9%',
-					ease: 'power4.easeIn',
+					ease: 'power4.easeOut',
 					scrollTrigger: {
 						// markers: true,
 						scrub: 0.05,
 						trigger: '.coming-soon-section',
-						start: '-=35%',
+						start: '-=45%',
 						end: '+=50%',
 						invalidateOnRefresh: true,
 						fastScrollEnd: true,
@@ -197,7 +197,7 @@ export const ComingSoon = () => {
 
 				gsap.to('.image-bottom-container', {
 					y: '146px',
-					ease: 'power4.easeIn',
+					ease: 'power4.easeOut',
 					scrollTrigger: {
 						// markers: true,
 						scrub: 0.05,
@@ -210,8 +210,8 @@ export const ComingSoon = () => {
 				});
 
 				gsap.to('.coming-soon-header', {
-					y: '45%',
-					ease: 'power4.easeIn',
+					y: '46.0053%',
+					ease: 'power4.easeOut',
 					scrollTrigger: {
 						// markers: true,
 						scrub: 0.05,

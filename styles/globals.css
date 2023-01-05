@@ -10,8 +10,9 @@ body {
 		Helvetica Neue, sans-serif;
 	color: var(--font-color);
 	background: hsla(49, 80%, 67%, 1);
-	font-size: clamp(0.8rem, calc(0.8rem + 1.1vmin), 1.3rem);
-	line-height: clamp(1.2rem, calc(1.3rem + 1.1vmin), 2rem);
+	font-size: clamp(1.125rem, calc(1rem + 0.3vmin), 1.2rem);
+	line-height: clamp(1.4rem, calc(1.5rem + 0.5vmin), 1.7rem);
+	font-weight: 300;
 	width: 100vw;
 }
 

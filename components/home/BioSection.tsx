@@ -27,7 +27,7 @@ const Container = styled(BaseSection)`
 
 const BioImage = styled(Image)`
 	width: 100%;
-	height: 100%;
+	height: -webkit-fill-available;
 	object-fit: cover;
 `;
 
@@ -37,6 +37,9 @@ const BioContent = styled.div`
 	align-items: flex-start;
 	justify-content: flex-end;
 	padding: 2rem 4rem 2rem 2rem;
+	@media (max-width: 860px) {
+		padding: 2rem;
+	}
 	& .content {
 		opacity: 0;
 		transform: translateY(200%);
@@ -63,7 +66,7 @@ export const BioSection = () => {
 	useEffect(() => {
 		const mm = gsap.matchMedia();
 		mm.add(mediaBreakpoints, (context: any) => {
-			const { reduceMotion } = context.conditions;
+			const { reduceMotion, isMobile } = context.conditions;
 			if (!reduceMotion) {
 				gsap.to('.content', {
 					y: 0,
@@ -73,8 +76,8 @@ export const BioSection = () => {
 						markers: true,
 						scrub: 0.05,
 						trigger: '.bio-section',
-						start: '-=80%',
-						end: '+=50%',
+						start: `${isMobile ? '-=40%' : '-=80%'}`,
+						end: `${isMobile ? '+=80%' : '+=50%'}`,
 						fastScrollEnd: true,
 					},
 				});
@@ -86,8 +89,8 @@ export const BioSection = () => {
 						markers: true,
 						scrub: 0.05,
 						trigger: '.bio-section',
-						start: '-=70%',
-						end: '+=50%',
+						start: `${isMobile ? '-=35%' : '-=70%'}`,
+						end: `${isMobile ? '+=80%' : '+=50%'}`,
 						fastScrollEnd: true,
 					},
 				});
