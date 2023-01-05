@@ -70,7 +70,7 @@ const ComingSoonSection = styled(BaseSection)`
 		@media (min-width: 540px) {
 			position: absolute;
 			height: 100%;
-			transform: translateY(51%);
+			transform: translateY(60%);
 			margin-top: 5rem;
 			left: 34%;
 			font-size: 165px;
@@ -115,9 +115,9 @@ const ImagesContainer = styled.div`
 
 const ImageTopContainer = styled(PictureFrame)`
 	position: relative;
-	transform: translateY(-166px) rotate(-2deg);
+	transform: translateY(-166px) rotate(-9deg);
 	width: 67%;
-	top: 9vh;
+	top: 11vh;
 	left: -70px;
 	height: 266px;
 	@media (min-width: 540px) {
@@ -148,8 +148,8 @@ const ImageBottomContainer = styled(PictureFrame)`
 	position: relative;
 	width: 222px;
 	height: 271px;
-	transform: translateY(110px) rotate(2deg);
-	right: -33%;
+	transform: translateY(110px) rotate(7deg);
+	right: -24%;
 	top: -28vh;
 	@media (min-width: 540px) {
 		position: absolute;
@@ -209,20 +209,19 @@ export const ComingSoon = () => {
 					},
 				});
 
-				// gsap.to('.coming-soon-header', {
-				// 	y: '51.0053%',
-				// 	ease: 'power4.easeOut',
-				// 	duration: 0,
-				// 	scrollTrigger: {
-				// 		// markers: true,
-				// 		scrub: 0.05,
-				// 		trigger: '.coming-soon-section',
-				// 		start: '-=5%',
-				// 		end: '+=30%',
-				// 		invalidateOnRefresh: true,
-				// 		fastScrollEnd: true,
-				// 	},
-				// });
+				gsap.to('.coming-soon-header', {
+					y: '51.0053%',
+					ease: 'power4.easeOut',
+					scrollTrigger: {
+						markers: true,
+						scrub: 0.05,
+						trigger: '.coming-soon-section',
+						start: '-=5%',
+						end: '+=30%',
+						invalidateOnRefresh: true,
+						fastScrollEnd: true,
+					},
+				});
 			}
 		});
 		return () => mm.revert();
@@ -236,21 +235,21 @@ export const ComingSoon = () => {
 					<span className="vista">Vista</span>
 				</h2>
 				<ImagesContainer>
-					<div style={{ filter: 'drop-shadow(0px 2px 15px rgba(50, 50, 0, 0.5))' }}>
-						<ImageTopContainer className="image-top-container">
-							<BaseImage className="image-top" src={rollImage2} alt="Roll image" />
-						</ImageTopContainer>
-					</div>
-					<div style={{ filter: 'drop-shadow(0px 2px 15px rgba(50, 50, 0, 0.5))' }}>
-						<FeatureImageContainer className="image-feature-container">
-							<BaseImage className="image-feature" src={featureImage} alt="Roll image" />
-						</FeatureImageContainer>
-					</div>
-					<div style={{ filter: 'drop-shadow(0px 2px 15px rgba(50, 50, 0, 0.5))' }}>
-						<ImageBottomContainer className="image-bottom-container">
-							<BaseImage className="image-bottom" src={rollImage4} alt="Roll image" />
-						</ImageBottomContainer>
-					</div>
+					{/* <div style={{ filter: 'drop-shadow(0px 2px 15px rgba(50, 50, 0, 0.5))' }}> */}
+					<ImageTopContainer className="image-top-container">
+						<BaseImage className="image-top" src={rollImage2} alt="Roll image" />
+					</ImageTopContainer>
+					{/* </div> */}
+					{/* <div style={{ filter: 'drop-shadow(0px 2px 15px rgba(50, 50, 0, 0.5))' }}> */}
+					<FeatureImageContainer className="image-feature-container">
+						<BaseImage className="image-feature" src={featureImage} alt="Roll image" />
+					</FeatureImageContainer>
+					{/* </div> */}
+					{/* <div style={{ filter: 'drop-shadow(0px 2px 15px rgba(50, 50, 0, 0.5))' }}> */}
+					<ImageBottomContainer className="image-bottom-container">
+						<BaseImage className="image-bottom" src={rollImage4} alt="Roll image" />
+					</ImageBottomContainer>
+					{/* </div> */}
 				</ImagesContainer>
 			</Content>
 		</ComingSoonSection>
