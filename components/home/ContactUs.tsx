@@ -9,14 +9,16 @@ import { BaseSection, SectionHeader } from '../../styles/globals';
 
 const ContactUsSection = styled(BaseSection)`
 	position: relative;
+	height: 60rem;
 	width: 100%;
 	background: var(--bkgd-color);
 	display: grid;
 	grid-template-columns: 1fr;
 	gap: 3vh;
-	text-align: right;
-	@media (max-width: 800px) {
-		height: 60rem;
+	text-align: left;
+	@media (min-width: 860px) {
+		height: auto;
+		text-align: right;
 	}
 	@media (min-width: 1010px) {
 		grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
@@ -29,9 +31,13 @@ const ContactContent = styled.div`
 	display: grid;
 	grid-template-columns: 1fr;
 	padding: clamp(2vw, 7vw, 2rem);
+	padding-top: 0;
 	gap: clamp(0.5rem, 5vw, 1rem);
+	@media (min-width: 860px) {
+		justify-self: end;
+	}
 	& h2 {
-		margin: 0;
+		padding-top: clamp(2vw, 7vw, 2rem);
 	}
 `;
 
@@ -41,7 +47,10 @@ const ContactDetails = styled.div`
 	width: fit-content;
 	gap: 1rem;
 	font-size: 1.2rem;
-	justify-self: end;
+	justify-self: start;
+	@media (min-width: 860px) {
+		justify-self: end;
+	}
 `;
 
 const ContactDetailItem = styled.div`
@@ -69,6 +78,7 @@ const SocialMediaLink = styled.a`
 const ContactUsMapSection = styled.div`
 	background: hsl(240, 11.1%, 96.5%);
 	grid-row-end: 1;
+	min-height: 50vh;
 	@media (min-width: 800px) {
 		grid-row-end: auto;
 	}

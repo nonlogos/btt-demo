@@ -9,7 +9,7 @@ import logoBannerImage from '../../public/logo_banner_sm.svg';
 const Header = styled.header`
 	background: black;
 	width: 100%;
-	height: clamp(3vw, 10vmin, 87px);
+	height: clamp(2rem, 10vmin, 87px);
 	display: grid;
 	grid-template-columns: minmax(0, 1fr);
 	padding: 0.5rem;
@@ -19,7 +19,7 @@ const Header = styled.header`
 	transform: translateY(-500px);
 	opacity: 0;
 	@media (min-width: 800px) {
-		height: clamp(3vw, 6.3vmin, 87px);
+		height: clamp(2rem, 6.3vmin, 87px);
 		transform: translateY(-500px);
 		opacity: 0;
 	}

@@ -213,7 +213,7 @@ export const ComingSoon = () => {
 					y: '51.0053%',
 					ease: 'power4.easeOut',
 					scrollTrigger: {
-						markers: true,
+						// markers: true,
 						scrub: 0.05,
 						trigger: '.coming-soon-section',
 						start: '-=5%',

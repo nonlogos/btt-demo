@@ -4,15 +4,12 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Image from 'next/image';
 
-import { BaseSection, BaseImage } from '../../styles/globals';
 import { mediaBreakpoints } from '../../utils/animation/matchMedia';
 import logoBannerImage from '../../public/logo.svg';
-import featureImage from '../../public/roll_feature.jpg';
-import rollImage1 from '../../public/roll_1.jpg';
 
-const Container = styled(BaseSection)`
+const Container = styled.div`
 	position: relative;
-	height: calc(clamp(10rem, 90vmin, 60rem) + 10vmin);
+	height: 100vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -20,14 +17,6 @@ const Container = styled(BaseSection)`
 	z-index: 1;
 	background-color: white;
 	overflow: hidden;
-	/* clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%); */
-`;
-
-const Content = styled.div`
-	position: relative;
-	z-index: 3;
-	height: 23%;
-	width: 471px;
 `;
 
 const ImageContainer = styled.div`
@@ -35,16 +24,23 @@ const ImageContainer = styled.div`
 		linear-gradient(-90deg, coral, transparent);
 	--linear-gradients: linear-gradient(to top, #86f5f9 0%, #000066 100%);
 	position: absolute;
-	height: 100%;
-	width: 50%;
+	height: 50%;
+	width: 100%;
+	top: 0;
 	left: 0;
-	right: 0;
 	margin-left: 0;
 	margin-right: auto;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	overflow: hidden;
+	@media (min-width: 415px) {
+		position: absolute;
+		height: 100%;
+	}
+	@media (min-width: 500px) {
+		width: 50%;
+	}
 `;
 
 const RollImageOne = styled.div`
@@ -81,21 +77,31 @@ const RollImageThree = styled.div`
 	opacity: 1;
 `;
 
+// Text content
+
+const Content = styled.div`
+	position: relative;
+	left: -1vw;
+	z-index: 3;
+	height: 23%;
+	width: 321px;
+`;
+
 const LogoContainer = styled.div`
 	position: absolute;
 	z-index: 4;
 	top: -48px;
-	left: 129px;
+	left: 71px;
 	width: 228px;
-	height: 168px;
+	height: 140px;
 	&:before {
 		content: ' ';
 		background: white;
 		position: absolute;
-		top: -32px;
-		left: -3px;
-		height: 139%;
-		width: 103%;
+		top: -26px;
+		left: 17px;
+		height: 138%;
+		width: 85.2%;
 		border-radius: 50%;
 	}
 `;
@@ -112,30 +118,22 @@ const LogoBannerImage = styled(Image)`
 `;
 
 const Title = styled.h2`
-	--size: 126.24px;
+	--size: 93.24px;
 	position: relative;
+	max-width: 6ch;
 	z-index: 3;
 	margin: 0;
 	font-size: var(--size);
-	line-height: var(--size);
+	line-height: calc(var(--size) - 7px);
 	text-align: justify;
 	font-weight: 600;
 	letter-spacing: -2.1px;
 	text-shadow: var(--bkgd-color) 2px 0 15px;
 `;
-
-const BTTSVGTop = styled.svg`
-	position: absolute;
-	top: 64%;
-	left: 134px;
-	width: auto;
-	height: 155px;
-`;
-
 const BTTText = styled.text`
 	fill: white;
-	stroke: var(--font-color);
-	stroke-width: 1.5px;
+	stroke: url(#gradient);
+	stroke-width: 1px;
 	stroke-linejoin: round;
 	animation: 2s pulsate infinite;
 	@keyframes pulsate {
@@ -144,10 +142,19 @@ const BTTText = styled.text`
 		}
 	}
 `;
-const BTTSVGBottom = styled(BTTSVGTop)`
-	top: 101%;
+
+const BTTSVGTop = styled.svg`
+	position: absolute;
+	top: 50%;
+	left: 103px;
 	width: auto;
-	height: 160px;
+	height: 150px;
+`;
+
+const BTTSVGBottom = styled(BTTSVGTop)`
+	top: 87%;
+	width: auto;
+	height: 145px;
 `;
 
 export const Test = () => {
@@ -156,8 +163,8 @@ export const Test = () => {
 	useEffect(() => {
 		const mm = gsap.matchMedia();
 		mm.add(mediaBreakpoints, (context: any) => {
-			const { reduceMotion, isDesktop } = context.conditions;
-			if (!reduceMotion && isDesktop) {
+			const { reduceMotion, isMobile } = context.conditions;
+			if (!reduceMotion) {
 				const tl = gsap
 					.timeline({
 						scrollTrigger: {
@@ -225,11 +232,23 @@ export const Test = () => {
 					<span>is coming to</span>
 					<span>
 						<BTTSVGTop viewBox="0 0 600 130">
+							<defs>
+								<linearGradient id="gradient" y1="0" y2="1">
+									<stop stopColor="#86f5f9" offset="0" />
+									<stop stopColor="#000066" offset="1" />
+								</linearGradient>
+							</defs>
 							<BTTText y="120" x="0">
 								Lago
 							</BTTText>
 						</BTTSVGTop>
 						<BTTSVGBottom viewBox="0 0 600 130">
+							<defs>
+								<linearGradient id="gradient" y1="0" y2="1">
+									<stop stopColor="#86f5f9" offset="0" />
+									<stop stopColor="#000066" offset="1" />
+								</linearGradient>
+							</defs>
 							<BTTText y="125" x="0">
 								Vista
 							</BTTText>

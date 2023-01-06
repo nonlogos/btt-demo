@@ -6,29 +6,30 @@ import styled from 'styled-components';
 import { BaseSection, SectionHeader } from '../../styles/globals';
 import { mediaBreakpoints } from '../../utils/animation/matchMedia';
 
-const IntroContainer = styled(BaseSection)`
+const IntroContainer = styled.div`
 	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	transform: 0;
 	width: 100%;
-	transform: translateY(-3vh);
 	z-index: 0;
 `;
 const IntroImageContainer = styled.div`
 	position: relative;
 	left: 0;
-	height: min(95%, 100vh);
+	height: 30rem;
 	width: 100%;
-	background: url('/group_profile.jpg');
+	background: linear-gradient(to top, transparent 55%, black 100%), url('/group_profile.jpg');
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
 	background-size: cover;
-	transform: translateY(0);
-	@media (min-width: 800px) {
-		transform: translateY(8%);
-		background-position: 50% 20%;
+	transform: translateY(-3vh);
+	@media (min-width: 860px) {
+		height: min(60vmin, 36rem);
 	}
 	@media (min-width: 1921px) {
 		width: min(80%, 2400px);
@@ -47,25 +48,24 @@ const IntroImageContainer = styled.div`
 // `;
 
 const IntroText = styled.div`
-	color: var(--font-color);
 	position: absolute;
-	top: 55vh;
+	top: 50%;
+	height: 100vh;
 	display: flex;
 	flex-direction: column;
 	padding: 2rem;
 	z-index: 5;
 	opacity: 0;
+	color: var(--font-color);
 	text-align: center;
 	transform: translateY(200px);
 	& h2 {
 		line-height: clamp(1.5rem, 12vw, 72px);
 		margin: 0;
-
 		width: 100%;
 	}
 	@media (min-width: 800px) {
 		width: 70vw;
-		top: 60vh;
 	}
 	@media (min-width: 1920px) {
 		width: 50%;
@@ -80,35 +80,66 @@ export const IntroSection = () => {
 		mm.add(mediaBreakpoints, (context: any) => {
 			const { reduceMotion, isMobile } = context.conditions;
 			if (!reduceMotion) {
+				// animation for the background image
+				gsap.to('.image', {
+					y: '-10%',
+					duration: 1,
+					ease: 'power3.out',
+					scrollTrigger: {
+						// markers: true,
+						scrub: 0.05,
+						trigger: '.coming-soon-section',
+						start: 'bottom+=20% top',
+						end: '+=100%',
+						invalidateOnRefresh: true,
+					},
+				});
 				if (!isMobile) {
 					gsap.to('.image', {
-						y: '-10%',
+						y: '-15%',
 						ease: 'power3.out',
 						scrollTrigger: {
 							// markers: true,
 							scrub: 0.05,
 							trigger: '.coming-soon-section',
-							start: 'bottom+=20% top',
-							end: '+=100%',
+							start: 'bottom+=120% top',
+							end: '+=30%',
 							invalidateOnRefresh: true,
 						},
 					});
 				}
 
 				gsap.to('.intro-content', {
-					y: '5%',
+					y: '0',
+					duration: 1.5,
 					autoAlpha: 1,
 					ease: 'power3.inOut',
 					scrollTrigger: {
-						markers: true,
+						// markers: true,
 						scrub: 0.05,
 						trigger: '.coming-soon-section',
-						start: 'bottom+=30% top',
+						start: 'bottom+=20% top',
 						end: '+=70%',
 						invalidateOnRefresh: true,
 					},
 				});
+				if (!isMobile) {
+					gsap.to('.intro-content', {
+						y: '-100vh',
+						autoAlpha: 0.5,
+						ease: 'power3.inOut',
+						scrollTrigger: {
+							markers: true,
+							scrub: 0.05,
+							trigger: '.coming-soon-section',
+							start: 'bottom+=100% top',
+							end: '+=90%',
+							invalidateOnRefresh: true,
+						},
+					});
+				}
 			} else {
+				// no animation: reduce motion
 				gsap.to('.image', {
 					y: '-10%',
 					duration: 0,
@@ -118,11 +149,11 @@ export const IntroSection = () => {
 					autoAlpha: 1,
 					duration: 0,
 					scrollTrigger: {
-						markers: true,
+						// markers: true,
 						scrub: 0.05,
 						trigger: '.coming-soon-section',
 						start: 'bottom+=30% top',
-						end: '+=50%',
+						end: '+=200%',
 						invalidateOnRefresh: true,
 					},
 				});

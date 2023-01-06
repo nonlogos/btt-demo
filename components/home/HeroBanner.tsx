@@ -8,21 +8,17 @@ const HeroBannerContainer = styled.section`
 	position: relative;
 	height: clamp(10rem, 100vh, 1600px);
 	width: 100vw;
-	@media (max-width: 800px) {
-		height: 35vmax;
+	height: 35vh;
+	@media (min-width: 450px) {
+		height: 60vh;
 	}
-	@media (min-width: 1921px) {
-		height: 45vmax;
+	@media (min-width: 800px) {
+		height: 100vh;
 	}
-`;
 
-const Figure = styled.figure`
-	object-fit: cover;
-	position: relative;
-	width: 100%;
-	height: 100%;
-	z-index: 99;
-	margin: 0;
+	@media (min-width: 1921px) {
+		height: 45vh;
+	}
 `;
 
 const HeroVidBg = styled.video`
@@ -30,7 +26,7 @@ const HeroVidBg = styled.video`
 	position: relative;
 	width: 100%;
 	height: 100%;
-	z-index: 99;
+	z-index: 20;
 	background: black;
 `;
 
@@ -50,7 +46,7 @@ const TitleComponents = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	z-index: 100;
+	z-index: 21;
 `;
 
 const Title = styled.h2`
@@ -60,15 +56,20 @@ const Title = styled.h2`
 	color: white;
 	font-size: min(6vmin, 59.4px);
 	text-shadow: black 2px 0 15px;
+	text-align: center;
 	& .champions,
 	& .mat {
 		display: block;
 	}
 
 	& .champions {
-		font-size: min(10vmin, 99px);
+		font-size: min(11vmin, 99px);
 		line-height: min(15vmin, 140px);
 		letter-spacing: 2.2px;
+		letter-spacing: 2.2px;
+	}
+	& .mat {
+		letter-spacing: normal;
 	}
 `;
 
@@ -77,7 +78,6 @@ export const HeroBanner = () => {
 
 	return (
 		<HeroBannerContainer>
-			{/* <Figure id="videoContainer"> */}
 			<HeroVidBg className="hero-bkgd" ref={heroVid} autoPlay loop muted playsInline preload="auto">
 				<source src="/hero_vid.mp4" type="video/mp4" />
 				Your browser does not support the video tag.
@@ -89,10 +89,6 @@ export const HeroBanner = () => {
 					<span className="mat">on and off the mat</span>
 				</Title>
 			</TitleComponents>
-			{/* </Figure>
-			<figcaption>
-				&copy; Blender Foundation |<a href="http://mango.blender.org">mango.blender.org</a>
-			</figcaption> */}
 		</HeroBannerContainer>
 	);
 };
