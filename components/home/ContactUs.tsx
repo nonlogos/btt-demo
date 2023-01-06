@@ -14,11 +14,12 @@ const ContactUsSection = styled(BaseSection)`
 	background: var(--bkgd-color);
 	display: grid;
 	grid-template-columns: 1fr;
-	gap: 3vh;
+	gap: 0;
 	text-align: left;
 	@media (min-width: 860px) {
 		height: auto;
 		text-align: right;
+		gap: 3vh;
 	}
 	@media (min-width: 1010px) {
 		grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
@@ -32,12 +33,16 @@ const ContactContent = styled.div`
 	grid-template-columns: 1fr;
 	padding: clamp(2vw, 7vw, 2rem);
 	padding-top: 0;
-	gap: clamp(0.5rem, 5vw, 1rem);
+	gap: 0;
 	@media (min-width: 860px) {
 		justify-self: end;
+		gap: clamp(0.5rem, 5vw, 1rem);
 	}
 	& h2 {
-		padding-top: clamp(2vw, 7vw, 2rem);
+		padding-top: 0;
+		@media (min-width: 860px) {
+			padding-top: clamp(2vw, 7vw, 2rem);
+		}
 	}
 `;
 

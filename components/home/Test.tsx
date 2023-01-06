@@ -34,9 +34,12 @@ const ImageContainer = styled.div`
 	justify-content: center;
 	align-items: center;
 	overflow: hidden;
-	@media (min-width: 415px) {
+	background: white;
+	opacity: 0;
+	@media (min-width: 450px) {
 		position: absolute;
 		height: 100%;
+		opacity: 1;
 	}
 	@media (min-width: 500px) {
 		width: 50%;
@@ -47,22 +50,34 @@ const RollImageOne = styled.div`
 	width: 100%;
 	height: 100%;
 	position: absolute;
-	background: var(--linear-gradients), url('/roll_3.jpg');
+	background: url('/roll_3.jpg');
 	background-size: cover;
 	background-blend-mode: screen;
 	background-position: 54% 39%;
 	opacity: 1;
+	@media (min-width: 450px) {
+		background: var(--linear-gradients), url('/roll_3.jpg');
+		background-blend-mode: screen;
+		background-size: cover;
+		background-position: 49% 50%;
+	}
 `;
 
 const RollImageTwo = styled.div`
 	width: 100%;
 	height: 100%;
 	position: absolute;
-	background: var(--linear-gradients), url('/roll_1.jpg');
+	background: url('/roll_1.jpg');
 	background-size: cover;
 	background-blend-mode: screen, screen;
 	background-position: 85% 39%;
 	opacity: 1;
+	@media (min-width: 450px) {
+		background: var(--linear-gradients), url('/roll_1.jpg');
+		background-blend-mode: screen;
+		background-size: cover;
+		background-position: 49% 50%;
+	}
 `;
 
 const RollImageThree = styled.div`
@@ -70,11 +85,16 @@ const RollImageThree = styled.div`
 	height: 100%;
 	position: absolute;
 	transform: translateX(0);
-	background: var(--linear-gradients), url('/roll_feature.jpg');
+	background: url('/roll_feature.jpg');
 	background-size: cover;
-	background-blend-mode: screen;
 	background-position: 49% 50%;
 	opacity: 1;
+	@media (min-width: 450px) {
+		background: var(--linear-gradients), url('/roll_feature.jpg');
+		background-blend-mode: screen;
+		background-size: cover;
+		background-position: 49% 50%;
+	}
 `;
 
 // Text content
@@ -128,19 +148,13 @@ const Title = styled.h2`
 	text-align: justify;
 	font-weight: 600;
 	letter-spacing: -2.1px;
-	text-shadow: var(--bkgd-color) 2px 0 15px;
+	text-shadow: var(--bkgd-color) 2px 0 5px;
 `;
 const BTTText = styled.text`
 	fill: white;
-	stroke: url(#gradient);
-	stroke-width: 1px;
+	stroke: var(--font-color);
+	stroke-width: 1.5px;
 	stroke-linejoin: round;
-	animation: 2s pulsate infinite;
-	@keyframes pulsate {
-		50% {
-			stroke-width: 2.5px;
-		}
-	}
 `;
 
 const BTTSVGTop = styled.svg`
@@ -157,6 +171,30 @@ const BTTSVGBottom = styled(BTTSVGTop)`
 	height: 145px;
 `;
 
+const mobileScrollTriggerOptions = {
+	scrollTrigger: {
+		trigger: '.coming-soon-section',
+		start: 'center center',
+		end: () => '+=250%',
+		pin: '.coming-soon-section',
+		anticipatePin: 1,
+		// markers: true,
+		scrub: 0.05,
+	},
+};
+
+const desktopScrollTriggerOptions = {
+	scrollTrigger: {
+		trigger: '.coming-soon-section',
+		start: 'center center',
+		end: () => '+=350%',
+		pin: '.coming-soon-section',
+		anticipatePin: 1,
+		// markers: true,
+		scrub: 0.05,
+	},
+};
+
 export const Test = () => {
 	const elem = useRef(null);
 	gsap.registerPlugin(ScrollTrigger);
@@ -164,54 +202,79 @@ export const Test = () => {
 		const mm = gsap.matchMedia();
 		mm.add(mediaBreakpoints, (context: any) => {
 			const { reduceMotion, isMobile } = context.conditions;
+			const scrollTriggerOptions = isMobile ? mobileScrollTriggerOptions : desktopScrollTriggerOptions;
+			const alphaStart = isMobile ? undefined : '<0.5';
 			if (!reduceMotion) {
-				const tl = gsap
-					.timeline({
-						scrollTrigger: {
-							trigger: '.coming-soon-section',
-							start: 'center center',
-							end: () => '+=350%',
-							pin: '.coming-soon-section',
-							anticipatePin: 1,
-							// markers: true,
-							toggleActions: 'play none none reset',
-							scrub: 0.3,
-							// id: 'center tl',
-						},
-					})
-					.to('.image-three', {
-						x: '-100%',
-						duration: 2,
-						delay: 1,
-						ease: 'power4.easeOut',
-					})
-					.to(
-						'.image-three',
-						{
-							autoAlpha: 0,
-							duration: 1,
+				if (isMobile) {
+					const tl = gsap
+						.timeline(scrollTriggerOptions)
+						.to('.image-container', {
+							autoAlpha: 1,
+							duration: 2,
+							delay: 0.5,
 							ease: 'power4.easeOut',
-						},
-						'<0.5'
-					)
-					.to('.image-two', {
-						x: '-100%',
-						duration: 1.5,
-						ease: 'power4.easeOut',
-					})
-					.to(
-						'.image-two',
-						{
+							immediateRender: false,
+						})
+						.to('.image-three', {
 							autoAlpha: 0,
-							duration: 1,
+							duration: 2,
 							ease: 'power4.easeOut',
-						},
-						'<0.5'
-					)
-					.to('.image-one', {
-						x: '0',
-						duration: 1,
-					});
+							immediateRender: false,
+						})
+						.to('.image-two', {
+							autoAlpha: 0,
+							duration: 2,
+							ease: 'power4.easeOut',
+							immediateRender: false,
+						})
+						.to('.image-one', {
+							x: '0',
+							duration: 1,
+							immediateRender: false,
+						});
+				} else {
+					const tl = gsap
+						.timeline(scrollTriggerOptions)
+						.to('.image-three', {
+							x: '-100%',
+							duration: isMobile ? 0 : 2,
+							delay: 1,
+							ease: 'power4.easeOut',
+							immediateRender: false,
+						})
+						.to(
+							'.image-three',
+							{
+								autoAlpha: 0,
+								duration: isMobile ? 3 : 1,
+								ease: 'power4.easeOut',
+								immediateRender: false,
+							},
+							'<0.5'
+						)
+						.to('.image-two', {
+							x: '-100%',
+							duration: isMobile ? 0 : 1.5,
+							ease: 'power4.easeOut',
+							immediateRender: false,
+						})
+						.fromTo(
+							'.image-two',
+							{ autoAlpha: 1 },
+							{
+								autoAlpha: 0,
+								duration: isMobile ? 3 : 1,
+								ease: 'power4.easeOut',
+								immediateRender: false,
+							},
+							'<0.5'
+						)
+						.to('.image-one', {
+							x: '0',
+							duration: isMobile ? 0 : 1,
+							immediateRender: false,
+						});
+				}
 			}
 		});
 		return () => mm.revert();

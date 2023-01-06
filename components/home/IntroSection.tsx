@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import styled from 'styled-components';
 
-import { BaseSection, SectionHeader } from '../../styles/globals';
+import { SectionHeader } from '../../styles/globals';
 import { mediaBreakpoints } from '../../utils/animation/matchMedia';
 
 const IntroContainer = styled.div`
@@ -23,13 +23,13 @@ const IntroImageContainer = styled.div`
 	left: 0;
 	height: 30rem;
 	width: 100%;
-	background: linear-gradient(to top, transparent 55%, black 100%), url('/group_profile.jpg');
+	background: url('/group_profile.jpg');
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
 	background-size: cover;
-	transform: translateY(-3vh);
+	/* transform: translateY(-3vh); */
 	@media (min-width: 860px) {
-		height: min(60vmin, 36rem);
+		height: min(75vmin, 36rem);
 	}
 	@media (min-width: 1921px) {
 		width: min(80%, 2400px);
@@ -99,7 +99,7 @@ export const IntroSection = () => {
 						y: '-15%',
 						ease: 'power3.out',
 						scrollTrigger: {
-							// markers: true,
+							markers: true,
 							scrub: 0.05,
 							trigger: '.coming-soon-section',
 							start: 'bottom+=120% top',
@@ -129,7 +129,7 @@ export const IntroSection = () => {
 						autoAlpha: 0.5,
 						ease: 'power3.inOut',
 						scrollTrigger: {
-							markers: true,
+							// markers: true,
 							scrub: 0.05,
 							trigger: '.coming-soon-section',
 							start: 'bottom+=100% top',

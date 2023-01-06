@@ -63,10 +63,13 @@ const Title = styled.h2`
 	}
 
 	& .champions {
-		font-size: min(11vmin, 99px);
-		line-height: min(15vmin, 140px);
+		font-size: 2rem;
+		line-height: 2.2rem;
 		letter-spacing: 2.2px;
-		letter-spacing: 2.2px;
+		@media (min-width: 450px) {
+			font-size: min(11vmin, 99px);
+			line-height: min(15vmin, 140px);
+		}
 	}
 	& .mat {
 		letter-spacing: normal;
