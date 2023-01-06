@@ -27,7 +27,7 @@ const IntroImageContainer = styled.div`
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
 	background-size: cover;
-	/* transform: translateY(-3vh); */
+	transform: translateY(-3vh);
 	@media (min-width: 860px) {
 		height: min(75vmin, 36rem);
 	}
@@ -99,7 +99,7 @@ export const IntroSection = () => {
 						y: '-15%',
 						ease: 'power3.out',
 						scrollTrigger: {
-							markers: true,
+							// markers: true,
 							scrub: 0.05,
 							trigger: '.coming-soon-section',
 							start: 'bottom+=120% top',
@@ -125,15 +125,15 @@ export const IntroSection = () => {
 				});
 				if (!isMobile) {
 					gsap.to('.intro-content', {
-						y: '-100vh',
-						autoAlpha: 0.5,
+						y: '-20vh',
+						autoAlpha: 0.1,
 						ease: 'power3.inOut',
 						scrollTrigger: {
 							// markers: true,
 							scrub: 0.05,
 							trigger: '.coming-soon-section',
 							start: 'bottom+=100% top',
-							end: '+=90%',
+							end: '+=40%',
 							invalidateOnRefresh: true,
 						},
 					});
