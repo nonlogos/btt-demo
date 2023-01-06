@@ -1,60 +1,102 @@
+import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Image from 'next/image';
 
-import { BaseSection } from '../../styles/globals';
-import logoBannerImage from '../../public/logo_banner_sm.svg';
+import { BaseSection, BaseImage } from '../../styles/globals';
+import { mediaBreakpoints } from '../../utils/animation/matchMedia';
+import logoBannerImage from '../../public/logo.svg';
 import featureImage from '../../public/roll_feature.jpg';
+import rollImage1 from '../../public/roll_1.jpg';
 
 const Container = styled(BaseSection)`
+	position: relative;
 	height: calc(clamp(10rem, 90vmin, 60rem) + 10vmin);
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	align-items: center;
 	z-index: 1;
 	background-color: white;
+	overflow: hidden;
 	/* clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%); */
-	&:after {
-		content: ' ';
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: linear-gradient(red, transparent), linear-gradient(to top left, lime, transparent),
-			linear-gradient(to top right, blue, transparent), url('/roll_feature.jpg'), url('/roll_feature.jpg');
-		background-size: cover;
-		background-blend-mode: screen, hue, lighten;
-		background-position: 50% 50%;
-		opacity: 0.1;
-	}
 `;
 
 const Content = styled.div`
 	position: relative;
 	z-index: 3;
-	margin-top: 20vmin;
+	height: 23%;
+	width: 471px;
+`;
+
+const ImageContainer = styled.div`
+	--gradients: linear-gradient(limegreen, transparent), linear-gradient(90deg, skyblue, transparent),
+		linear-gradient(-90deg, coral, transparent);
+	--linear-gradients: linear-gradient(to top, #86f5f9 0%, #000066 100%);
+	position: absolute;
 	height: 100%;
-	width: 411px;
+	width: 50%;
+	left: 0;
+	right: 0;
+	margin-left: 0;
+	margin-right: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+`;
+
+const RollImageOne = styled.div`
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background: var(--linear-gradients), url('/roll_3.jpg');
+	background-size: cover;
+	background-blend-mode: screen;
+	background-position: 54% 39%;
+	opacity: 1;
+`;
+
+const RollImageTwo = styled.div`
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background: var(--linear-gradients), url('/roll_1.jpg');
+	background-size: cover;
+	background-blend-mode: screen, screen;
+	background-position: 85% 39%;
+	opacity: 1;
+`;
+
+const RollImageThree = styled.div`
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	transform: translateX(0);
+	background: var(--linear-gradients), url('/roll_feature.jpg');
+	background-size: cover;
+	background-blend-mode: screen;
+	background-position: 49% 50%;
+	opacity: 1;
 `;
 
 const LogoContainer = styled.div`
 	position: absolute;
 	z-index: 4;
-	top: 41px;
-	left: 167px;
-	width: 223px;
-	height: 60px;
-	border: 10px solid black;
-	background: black;
+	top: -48px;
+	left: 129px;
+	width: 228px;
+	height: 168px;
 	&:before {
 		content: ' ';
-		background: black;
+		background: white;
 		position: absolute;
-		top: -27px;
-		left: -44px;
-		height: 240%;
-		width: 145%;
-		transform: skew(-38deg);
+		top: -32px;
+		left: -3px;
+		height: 139%;
+		width: 103%;
+		border-radius: 50%;
 	}
 `;
 
@@ -79,6 +121,7 @@ const Title = styled.h2`
 	text-align: justify;
 	font-weight: 600;
 	letter-spacing: -2.1px;
+	text-shadow: var(--bkgd-color) 2px 0 15px;
 `;
 
 const BTTSVGTop = styled.svg`
@@ -90,8 +133,8 @@ const BTTSVGTop = styled.svg`
 `;
 
 const BTTText = styled.text`
-	fill: none;
-	stroke: black;
+	fill: white;
+	stroke: var(--font-color);
 	stroke-width: 1.5px;
 	stroke-linejoin: round;
 	animation: 2s pulsate infinite;
@@ -107,37 +150,73 @@ const BTTSVGBottom = styled(BTTSVGTop)`
 	height: 160px;
 `;
 
-const BkgdPatternTop = styled.div`
-	position: absolute;
-	/* z-index: 2; */
-	top: 43px;
-	left: 28px;
-	height: 90px;
-	width: 219px;
-	transform: skewX(63deg) rotate(14deg);
-	background-color: #e5e5f7;
-	opacity: 0.5;
-	background-image: linear-gradient(to right, #444cf7, #444cf7 6px, #e5e5f7 6px, var(--bkgd-color));
-	background-size: 11px 100%;
-`;
-
-const BkgdPatternMiddle = styled.div`
-	position: absolute;
-	z-index: 2;
-	top: 78px;
-	left: 28px;
-	height: 90px;
-	width: 219px;
-	transform: skewX(63deg);
-	background-color: #e5e5f7;
-	opacity: 0.3;
-	background-image: linear-gradient(to right, #444cf7, #444cf7 6px, #e5e5f7 6px, var(--bkgd-color));
-	background-size: 11px 100%;
-`;
-
 export const Test = () => {
+	const elem = useRef(null);
+	gsap.registerPlugin(ScrollTrigger);
+	useEffect(() => {
+		const mm = gsap.matchMedia();
+		mm.add(mediaBreakpoints, (context: any) => {
+			const { reduceMotion, isDesktop } = context.conditions;
+			if (!reduceMotion && isDesktop) {
+				const tl = gsap
+					.timeline({
+						scrollTrigger: {
+							trigger: '.coming-soon-section',
+							start: 'center center',
+							end: () => '+=350%',
+							pin: '.coming-soon-section',
+							anticipatePin: 1,
+							// markers: true,
+							toggleActions: 'play none none reset',
+							scrub: 0.3,
+							// id: 'center tl',
+						},
+					})
+					.to('.image-three', {
+						x: '-100%',
+						duration: 2,
+						delay: 1,
+						ease: 'power4.easeOut',
+					})
+					.to(
+						'.image-three',
+						{
+							autoAlpha: 0,
+							duration: 1,
+							ease: 'power4.easeOut',
+						},
+						'<0.5'
+					)
+					.to('.image-two', {
+						x: '-100%',
+						duration: 1.5,
+						ease: 'power4.easeOut',
+					})
+					.to(
+						'.image-two',
+						{
+							autoAlpha: 0,
+							duration: 1,
+							ease: 'power4.easeOut',
+						},
+						'<0.5'
+					)
+					.to('.image-one', {
+						x: '0',
+						duration: 1,
+					});
+			}
+		});
+		return () => mm.revert();
+	}, []);
+
 	return (
-		<Container className="coming-soon-section">
+		<Container className="coming-soon-section" ref={elem}>
+			<ImageContainer className="image-container">
+				<RollImageOne className="image-one" />
+				<RollImageTwo className="image-two" />
+				<RollImageThree className="image-three" />
+			</ImageContainer>
 			<Content>
 				<LogoContainer>
 					<LogoBannerImage src={logoBannerImage} alt="BTT Lago Vista logo banner" layout="fill" objectFit="contain" />
@@ -157,8 +236,6 @@ export const Test = () => {
 						</BTTSVGBottom>
 					</span>
 				</Title>
-				{/* <BkgdPatternTop /> */}
-				{/* <BkgdPatternMiddle /> */}
 			</Content>
 		</Container>
 	);

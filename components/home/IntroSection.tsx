@@ -19,13 +19,13 @@ const IntroContainer = styled(BaseSection)`
 const IntroImageContainer = styled.div`
 	position: relative;
 	left: 0;
-	height: 95%;
+	height: min(95%, 100vh);
 	width: 100%;
 	background: url('/group_profile.jpg');
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
 	background-size: cover;
-	transform: translateY(-10%);
+	transform: translateY(0);
 	@media (min-width: 800px) {
 		transform: translateY(8%);
 		background-position: 50% 20%;
@@ -88,7 +88,7 @@ export const IntroSection = () => {
 							// markers: true,
 							scrub: 0.05,
 							trigger: '.coming-soon-section',
-							start: 'bottom 30%',
+							start: 'bottom+=20% top',
 							end: '+=100%',
 							invalidateOnRefresh: true,
 						},
@@ -96,14 +96,14 @@ export const IntroSection = () => {
 				}
 
 				gsap.to('.intro-content', {
-					y: 0,
+					y: '5%',
 					autoAlpha: 1,
 					ease: 'power3.inOut',
 					scrollTrigger: {
-						// markers: true,
+						markers: true,
 						scrub: 0.05,
 						trigger: '.coming-soon-section',
-						start: 'center+=40% top',
+						start: 'bottom+=30% top',
 						end: '+=70%',
 						invalidateOnRefresh: true,
 					},
@@ -117,6 +117,14 @@ export const IntroSection = () => {
 					y: 0,
 					autoAlpha: 1,
 					duration: 0,
+					scrollTrigger: {
+						markers: true,
+						scrub: 0.05,
+						trigger: '.coming-soon-section',
+						start: 'bottom+=30% top',
+						end: '+=50%',
+						invalidateOnRefresh: true,
+					},
 				});
 			}
 		});

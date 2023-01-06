@@ -12,13 +12,12 @@ const Container = styled(BaseSection)`
 	position: relative;
 	display: grid;
 	width: 100%;
-	height: auto;
 	grid-template-columns: 1fr;
 	background: white;
 	margin-top: 200vmin;
 	overflow: hidden;
-	@media (max-width: 860px) {
-		margin-top: 400vmin;
+	@media (max-width: 800px) {
+		height: auto;
 	}
 	@media (min-width: 1010px) {
 		grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
@@ -42,7 +41,7 @@ const BioContent = styled.div`
 	}
 	& .content {
 		opacity: 0;
-		transform: translateY(200%);
+		transform: translateY(0);
 	}
 	& h2 {
 		margin: 0;
@@ -69,19 +68,6 @@ export const BioSection = () => {
 			const { reduceMotion, isMobile } = context.conditions;
 			if (!reduceMotion) {
 				gsap.to('.content', {
-					y: 0,
-					stagger: 0.1,
-					ease: 'power3.Out',
-					scrollTrigger: {
-						// markers: true,
-						scrub: 0.05,
-						trigger: '.bio-section',
-						start: `${isMobile ? '-=40%' : '-=80%'}`,
-						end: `${isMobile ? '+=80%' : '+=50%'}`,
-						fastScrollEnd: true,
-					},
-				});
-				gsap.to('.content', {
 					autoAlpha: 1,
 					stagger: 0.1,
 					ease: 'power3.Out',
@@ -89,8 +75,8 @@ export const BioSection = () => {
 						// markers: true,
 						scrub: 0.05,
 						trigger: '.bio-section',
-						start: `${isMobile ? '-=35%' : '-=70%'}`,
-						end: `${isMobile ? '+=80%' : '+=50%'}`,
+						start: `${isMobile ? '-=35%' : '-=30%'}`,
+						end: `${isMobile ? '+=80%' : '+=70%'}`,
 						fastScrollEnd: true,
 					},
 				});
