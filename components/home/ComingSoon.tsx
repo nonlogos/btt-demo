@@ -6,8 +6,8 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import featureImage from '../../public/roll_feature.jpg';
 import rollImage2 from '../../public/roll_1.jpg';
 import rollImage4 from '../../public/roll_4.jpg';
-import { BaseSection, BaseImage, PictureFrame } from '../../styles/globals';
-import { mediaBreakpoints } from '../../utils/animation/matchMedia';
+import { BaseSection, BaseImage, PictureFrame } from '../global';
+import { mediaBreakpoints } from '../../utils';
 
 const ComingSoonSection = styled(BaseSection)`
 	display: flex;

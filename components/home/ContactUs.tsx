@@ -4,8 +4,8 @@ import { MdEmail } from 'react-icons/md';
 import { AiFillInstagram } from 'react-icons/ai';
 import { BsFillPhoneFill } from 'react-icons/bs';
 
-import { Map } from '../../components';
-import { BaseSection, SectionHeader } from '../../styles/globals';
+import { Map } from '../global';
+import { BaseSection, SectionHeader } from '../global';
 
 const ContactUsSection = styled(BaseSection)`
 	position: relative;

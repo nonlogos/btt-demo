@@ -1,8 +1,27 @@
 import styled from 'styled-components';
 import Head from 'next/head';
+import Image from 'next/legacy/image';
 
-import { MainHeader } from '../components';
-import { HeroBanner, ComingSoon, IntroSection, BioSection, ContactUs, Test } from '../components/home';
+import {
+	NewsBanner,
+	MainHeader,
+	TaglineBanner,
+	TwoColumnLayout,
+	Schedules,
+	Testimonials,
+	Text,
+} from '../components/global';
+import { HeroBanner, IntroSection, BioSection, ContactUs } from '../components/home';
+import { homeText } from '../siteContent';
+import adultsProgramImage from '../public/roll_2.jpg';
+import kidsProgramImage from '../public/roll_1.jpg';
+import bioImage from '../public/bio.jpg';
+
+const {
+	newsBanner,
+	heroBanner: { title, bodyText, buttonOne, buttonTwo, disclaimer },
+	taglineBanner: { title: taglineTitle, bodyText: taglineBodyText },
+} = homeText;
 
 const Main = styled.main`
 	display: grid;
@@ -15,7 +34,7 @@ const Footer = styled.footer`
 	min-height: 15rem;
 	margin: 0;
 	padding: 0;
-	background: var(--font-color);
+	background: var(--font-color-dark);
 	justify-content: center;
 	font-size: 0.8rem;
 	color: var(--bkgd-color);
@@ -28,23 +47,70 @@ export default function Home() {
 				<title>Create Next App</title>
 				<meta name="description" content="BTT Lago Vista" />
 				<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1"></meta>
-				<link rel="icon" href="/favicon.ico" />
-				<link rel="preconnect" href="https://fonts.googleapis.com" />
-				<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-				<link
-					href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Open+Sans:wght@800&display=swap"
-					rel="stylesheet"
-				/>
 			</Head>
 
 			<Main>
+				<NewsBanner content={newsBanner} />
 				<MainHeader />
-				<HeroBanner />
-				{/* <ComingSoon /> */}
-				<Test />
-				<IntroSection />
-				<BioSection />
-				<ContactUs />
+				<HeroBanner
+					title={title}
+					bodyText={bodyText}
+					buttonOne={buttonOne}
+					buttonTwo={buttonTwo}
+					disclaimer={disclaimer}
+				/>
+				<TaglineBanner title={taglineTitle} bodyText={taglineBodyText} />
+				<TwoColumnLayout
+					Image={() => (
+						<Image src={adultsProgramImage} alt="Adult Programs" placeholder="blur" layout="fill" objectFit="cover" />
+					)}
+					title="Adult Programs"
+					subTitle="Rise to the Challenge"
+					actionText="Learn more"
+					contentRight
+				>
+					<Text>
+						Learn self-defense skills, lose weight, and boost your confidence as you train among champions. Whether
+						you're seasoned fighter training for a competition or a beginner looking to get fit, we'll help you reach
+						your goals no matter your age or skill level.
+					</Text>
+					<Text>Welcome to the Team!</Text>
+				</TwoColumnLayout>
+				<TwoColumnLayout
+					Image={() => (
+						<Image src={kidsProgramImage} alt="Kids Academy" placeholder="blur" layout="fill" objectFit="cover" />
+					)}
+					title="Kids Academy"
+					subTitle="The path to a healthier, confident, and more disciplined life"
+					actionText="Get on the path!"
+				>
+					<Text>
+						At our academy, kids will learn respect, self-defense, and make lasting connections with their fellow
+						students.
+					</Text>
+					<Text>Join us at BTT Lago and watch your kiddo thrive on and off the mat.</Text>
+				</TwoColumnLayout>
+				<TwoColumnLayout
+					Image={() => (
+						<Image src={bioImage} alt="Professor Israel Davila" placeholder="blur" layout="fill" objectFit="cover" />
+					)}
+					title="Instructor"
+					subTitle="Professor Israel Davila, Owner and Lead Instructor Brazilian Top Team Lago Vista"
+					actionText="Meet Isreal"
+					contentRight
+				>
+					<Text>
+						A member of BTT since 2016, Israel is a multiple-time IBJJF champion and joined the ranks of black belt in
+						2021, solidifying his place as a master of the art.
+					</Text>
+					<Text>
+						Whether you're a seasoned BJJ veteran or just starting out, Israel's knowledge, experience, and methods will
+						take your skills to the next level.
+					</Text>
+				</TwoColumnLayout>
+				<Schedules />
+				<Testimonials />
+				{/* <ContactUs /> */}
 				<Footer>
 					<p>© BTT Lago Vista. 2022. We love our users!</p>
 				</Footer>

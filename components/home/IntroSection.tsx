@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import styled from 'styled-components';
 
-import { SectionHeader } from '../../styles/globals';
+import { SectionHeader } from '../global';
 import { mediaBreakpoints } from '../../utils/animation/matchMedia';
 
 const IntroContainer = styled.div`
@@ -21,7 +21,7 @@ const IntroContainer = styled.div`
 const IntroImageContainer = styled.div`
 	position: relative;
 	left: 0;
-	height: 30rem;
+	height: 10rem;
 	width: 100%;
 	background: url('/group_profile.jpg');
 	background-position: 50% 50%;
@@ -37,15 +37,6 @@ const IntroImageContainer = styled.div`
 		box-shadow: 0px 2px 16px 8px rgba(0, 0, 0, 0.65);
 	}
 `;
-
-// const IntroGradient = styled.div`
-// 	width: 100%;
-// 	height: 100%;
-// 	background-image: linear-gradient(-180deg, transparent 60%, black 75%);
-// 	position: absolute;
-// 	transform: translateY(5%);
-// 	z-index: 2;
-// `;
 
 const IntroText = styled.div`
 	position: absolute;

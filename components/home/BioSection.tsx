@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import styled from 'styled-components';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
-import { mediaBreakpoints } from '../../utils/animation/matchMedia';
-import { BaseSection } from '../../styles/globals';
+import { mediaBreakpoints } from '../../utils';
+import { BaseSection, header } from '../global';
 import bioImage from '../../public/bio.jpg';
 
 const Container = styled(BaseSection)`
@@ -37,7 +37,7 @@ const BioImage = styled(Image)`
 	box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.35);
 	object-position: 50% top;
 	@media (min-width: 860px) {
-		height: -webkit-fill-available;
+		height: 100%;
 		margin: 0;
 		width: 100%;
 		border: none;
@@ -120,10 +120,10 @@ export const BioSection = () => {
 		<Container className="bio-section">
 			<BioImage src={bioImage} alt="Professor Israel Davila" placeholder="blur" className="bio-image" />
 			<BioContent>
-				<h2 className="content">
+				<header.H2 className="content">
 					<span className="meet-professor">Meet Professor</span>
 					<span className="isreal-davila">Israel Davila</span>
-				</h2>
+				</header.H2>
 				<div className="content">
 					<p>
 						Owner and instructor of Brazilian Top Team Lago Vista. With over a decade of BJJ training under his belt,

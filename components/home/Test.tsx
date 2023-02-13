@@ -2,9 +2,9 @@ import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 
-import { mediaBreakpoints } from '../../utils/animation/matchMedia';
+import { mediaBreakpoints, oswald } from '../../utils';
 import logoBannerImage from '../../public/logo.svg';
 
 const Container = styled.div`
@@ -126,7 +126,7 @@ const LogoContainer = styled.div`
 	}
 `;
 
-const LogoBannerImage = styled(Image)`
+const LogoBannerImage = styled.img`
 	position: absolute;
 	height: 100%;
 	width: 100%;
@@ -205,76 +205,76 @@ export const Test = () => {
 			const scrollTriggerOptions = isMobile ? mobileScrollTriggerOptions : desktopScrollTriggerOptions;
 			const alphaStart = isMobile ? undefined : '<0.5';
 			if (!reduceMotion) {
-				if (isMobile) {
-					const tl = gsap
-						.timeline(scrollTriggerOptions)
-						.to('.image-container', {
-							autoAlpha: 1,
-							duration: 2,
-							delay: 0.5,
-							ease: 'power4.easeOut',
-							immediateRender: false,
-						})
-						.to('.image-three', {
-							autoAlpha: 0,
-							duration: 2,
-							ease: 'power4.easeOut',
-							immediateRender: false,
-						})
-						.to('.image-two', {
-							autoAlpha: 0,
-							duration: 2,
-							ease: 'power4.easeOut',
-							immediateRender: false,
-						})
-						.to('.image-one', {
-							x: '0',
-							duration: 1,
-							immediateRender: false,
-						});
-				} else {
-					const tl = gsap
-						.timeline(scrollTriggerOptions)
-						.to('.image-three', {
-							x: '-100%',
-							duration: isMobile ? 0 : 2,
-							delay: 1,
-							ease: 'power4.easeOut',
-							immediateRender: false,
-						})
-						.to(
-							'.image-three',
-							{
-								autoAlpha: 0,
-								duration: isMobile ? 3 : 1,
-								ease: 'power4.easeOut',
-								immediateRender: false,
-							},
-							'<0.5'
-						)
-						.to('.image-two', {
-							x: '-100%',
-							duration: isMobile ? 0 : 1.5,
-							ease: 'power4.easeOut',
-							immediateRender: false,
-						})
-						.fromTo(
-							'.image-two',
-							{ autoAlpha: 1 },
-							{
-								autoAlpha: 0,
-								duration: isMobile ? 3 : 1,
-								ease: 'power4.easeOut',
-								immediateRender: false,
-							},
-							'<0.5'
-						)
-						.to('.image-one', {
-							x: '0',
-							duration: isMobile ? 0 : 1,
-							immediateRender: false,
-						});
-				}
+				// if (isMobile) {
+				const tl = gsap
+					.timeline(scrollTriggerOptions)
+					.to('.image-container', {
+						autoAlpha: 1,
+						duration: 2,
+						delay: 0.5,
+						ease: 'power4.easeOut',
+						immediateRender: false,
+					})
+					.to('.image-three', {
+						autoAlpha: 0,
+						duration: 2,
+						ease: 'power4.easeOut',
+						immediateRender: false,
+					})
+					.to('.image-two', {
+						autoAlpha: 0,
+						duration: 2,
+						ease: 'power4.easeOut',
+						immediateRender: false,
+					})
+					.to('.image-one', {
+						x: '0',
+						duration: 1,
+						immediateRender: false,
+					});
+				// } else {
+				// 	const tl = gsap
+				// 		.timeline(scrollTriggerOptions)
+				// 		.to('.image-three', {
+				// 			x: '-100%',
+				// 			duration: isMobile ? 0 : 2,
+				// 			delay: 1,
+				// 			ease: 'power4.easeOut',
+				// 			immediateRender: false,
+				// 		})
+				// 		.to(
+				// 			'.image-three',
+				// 			{
+				// 				autoAlpha: 0,
+				// 				duration: isMobile ? 3 : 1,
+				// 				ease: 'power4.easeOut',
+				// 				immediateRender: false,
+				// 			},
+				// 			'<0.5'
+				// 		)
+				// 		.to('.image-two', {
+				// 			x: '-100%',
+				// 			duration: isMobile ? 0 : 1.5,
+				// 			ease: 'power4.easeOut',
+				// 			immediateRender: false,
+				// 		})
+				// 		.fromTo(
+				// 			'.image-two',
+				// 			{ autoAlpha: 1 },
+				// 			{
+				// 				autoAlpha: 0,
+				// 				duration: isMobile ? 3 : 1,
+				// 				ease: 'power4.easeOut',
+				// 				immediateRender: false,
+				// 			},
+				// 			'<0.5'
+				// 		)
+				// 		.to('.image-one', {
+				// 			x: '0',
+				// 			duration: isMobile ? 0 : 1,
+				// 			immediateRender: false,
+				// 		});
+				// }
 			}
 		});
 		return () => mm.revert();
@@ -289,9 +289,9 @@ export const Test = () => {
 			</ImageContainer>
 			<Content>
 				<LogoContainer>
-					<LogoBannerImage src={logoBannerImage} alt="BTT Lago Vista logo banner" layout="fill" objectFit="contain" />
+					<LogoBannerImage src="./logo.svg" alt="BTT Lago Vista logo banner" />
 				</LogoContainer>
-				<Title>
+				<Title className={oswald.className}>
 					<span>is coming to</span>
 					<span>
 						<BTTSVGTop viewBox="0 0 600 130">

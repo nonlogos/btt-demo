@@ -1,23 +1,36 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import styled from 'styled-components';
-import Image from 'next/image';
+import { FiUserPlus, FiCalendar } from 'react-icons/fi';
 
-import logoBannerImage from '../../public/logo_banner_sm.svg';
+import { Button, header, Text, Disclaimer } from '../global';
+import { oswald } from '../../utils';
+
+interface HeroBannerProps {
+	title: string;
+	bodyText?: string;
+	buttonOne?: string;
+	buttonTwo?: string;
+	disclaimer?: string;
+}
 
 const HeroBannerContainer = styled.section`
+	--max-height: 1120px;
+	--lg-shadow: black 2px 0 15px;
+	--sm-shadow: black 1px 0 3px;
 	position: relative;
-	height: clamp(10rem, 100vh, 1600px);
 	width: 100vw;
-	height: 35vh;
+	height: max(30rem, 45vh);
+	background: black;
+	color: var(--font-color-light);
 	@media (min-width: 450px) {
 		height: 60vh;
 	}
 	@media (min-width: 800px) {
-		height: 100vh;
+		height: min(100vh, var(---max-height));
 	}
 
 	@media (min-width: 1921px) {
-		height: 45vh;
+		height: min(45vh, var(--max-height));
 	}
 `;
 
@@ -30,54 +43,59 @@ const HeroVidBg = styled.video`
 	background: black;
 `;
 
-const LogoImage = styled(Image)`
-	width: auto;
-	max-height: clamp(2rem, 8vmin, 5rem);
-	border: white solid 5px;
-	box-shadow: 0px 2px 16px 8px rgba(0, 0, 0, 0.65);
-`;
-
-const TitleComponents = styled.div`
+const HeroContent = styled.div`
 	position: absolute;
 	top: 0;
 	width: 100%;
 	height: 100%;
+	padding: var(--sp-2x);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	text-align: center;
+	color: white;
 	z-index: 21;
+	@media (min-width: 500px) {
+		padding: var(--sp-2x) var(--sp-6x);
+	}
 `;
 
-const Title = styled.h2`
-	display: flex;
-	flex-direction: column;
-	margin: 4vmin 0;
-	color: white;
-	font-size: min(6vmin, 59.4px);
-	text-shadow: black 2px 0 15px;
-	text-align: center;
-	& .champions,
-	& .mat {
+const Title = styled(header.H1)`
+	line-height: 1.2em;
+	text-shadow: var(--lg-shadow);
+	& span {
 		display: block;
-	}
-
-	& .champions {
-		font-size: 2rem;
-		line-height: 2.2rem;
-		letter-spacing: 2.2px;
-		@media (min-width: 450px) {
-			font-size: min(11vmin, 99px);
-			line-height: min(15vmin, 140px);
+		font-size: 1.5em;
+		line-height: 1.1em;
+		@media (min-width: 850px) {
+			display: inline-block;
+			font-size: 1em;
+			line-height: 1em;
 		}
 	}
-	& .mat {
-		letter-spacing: normal;
+`;
+
+const BodyText = styled(Text)`
+	margin-top: var(--sp-3x);
+	margin-bottom: var(--sp-6x);
+	font-weight: 400;
+	font-size: clamp(1.2rem, 2vmin, 1.6rem);
+	text-shadow: var(--lg-shadow);
+`;
+const ActionsContianer = styled.div`
+	display: flex;
+	gap: var(--sp-2x);
+	& button {
+		box-shadow: var(--sm-shadow);
 	}
 `;
 
-export const HeroBanner = () => {
+// TODO investigate using iframe for video
+
+export const HeroBanner = ({ title, bodyText, buttonOne, buttonTwo, disclaimer }: HeroBannerProps) => {
 	const heroVid = useRef<HTMLVideoElement | null>(null);
+	const titleStrings = title.split(/<span>(.*?)<\/span>/g).filter(Boolean); // remove empty string result
 
 	return (
 		<HeroBannerContainer>
@@ -85,13 +103,18 @@ export const HeroBanner = () => {
 				<source src="/hero_vid.mp4" type="video/mp4" />
 				Your browser does not support the video tag.
 			</HeroVidBg>
-			<TitleComponents>
-				<LogoImage src={logoBannerImage} alt="BTT Lago Vista logo" />
-				<Title>
-					<span className="champions">Champions</span>
-					<span className="mat">on and off the mat</span>
+			<HeroContent>
+				<Title className={oswald.className}>
+					<span>{titleStrings[0]}</span>
+					{titleStrings[1]}
 				</Title>
-			</TitleComponents>
+				<BodyText>{bodyText}</BodyText>
+				<ActionsContianer>
+					<Button Icon={FiUserPlus}>{buttonOne}</Button>
+					<Button Icon={FiCalendar}>{buttonTwo}</Button>
+				</ActionsContianer>
+				<Disclaimer>{disclaimer}</Disclaimer>
+			</HeroContent>
 		</HeroBannerContainer>
 	);
 };
