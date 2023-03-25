@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import styled from 'styled-components';
 import { FiUserPlus, FiCalendar } from 'react-icons/fi';
 
-import { Button, header, Text, Disclaimer } from '../global';
+import { Button, header, Text, Disclaimer } from '../';
 import { oswald } from '../../utils';
 
 interface HeroBannerProps {
@@ -15,8 +15,6 @@ interface HeroBannerProps {
 
 const HeroBannerContainer = styled.section`
 	--max-height: 1120px;
-	--lg-shadow: black 2px 0 15px;
-	--sm-shadow: black 1px 0 3px;
 	position: relative;
 	width: 100vw;
 	height: max(30rem, 45vh);
@@ -63,7 +61,7 @@ const HeroContent = styled.div`
 
 const Title = styled(header.H1)`
 	line-height: 1.2em;
-	text-shadow: var(--lg-shadow);
+	text-shadow: var(--lg-txt-shadow);
 	& span {
 		display: block;
 		font-size: 1.5em;
@@ -81,7 +79,7 @@ const BodyText = styled(Text)`
 	margin-bottom: var(--sp-6x);
 	font-weight: 400;
 	font-size: clamp(1.2rem, 2vmin, 1.6rem);
-	text-shadow: var(--lg-shadow);
+	text-shadow: var(--lg-txt-shadow);
 `;
 const ActionsContianer = styled.div`
 	display: flex;
@@ -113,8 +111,8 @@ export const HeroBanner = ({ title, bodyText, buttonOne, buttonTwo, disclaimer }
 					<Button Icon={FiUserPlus}>{buttonOne}</Button>
 					<Button Icon={FiCalendar}>{buttonTwo}</Button>
 				</ActionsContianer>
-				<Disclaimer>{disclaimer}</Disclaimer>
 			</HeroContent>
+			<Disclaimer dark={false}>{disclaimer}</Disclaimer>
 		</HeroBannerContainer>
 	);
 };

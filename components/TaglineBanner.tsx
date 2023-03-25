@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { Text } from './fonts/Text';
-import { oswald } from '../../utils';
+import { Text } from './Typography/Text';
+import { oswald } from '../utils';
 
 // [TODO] background image blend mode on h2 is not working in safari
 
@@ -19,18 +19,10 @@ const Container = styled.section`
 	align-items: center;
 	min-height: 25rem;
 	padding: var(--sp-10x) 0;
-	background: var(--bkgd-top-color);
 	text-align: center;
 	z-index: 5;
 	overflow: hidden;
-	&:after {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-	}
+	background-color: var(--bkgd-base-color);
 `;
 
 const Header = styled.h2`

@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 import { MdEmojiObjects } from 'react-icons/md';
 
-import { Text } from './fonts/Text';
-import { Box } from './Box';
+import { Text, Box } from './';
 
 interface NewsBannerProps {
 	content: string;
@@ -10,22 +9,31 @@ interface NewsBannerProps {
 
 const Container = styled(Box)`
 	color: var(--font-color-light);
-	background: var(--font-color-dark);
+	background: var(--secondary-color);
 	padding: 0.5rem 1rem;
 `;
 
 const Content = styled(Text)`
 	margin: 0;
-	font-size: 18px;
+	margin-top: -4px;
+	margin-bottom: 0; // override existing styles
+	font-size: 14px;
 	font-weight: 400;
 	text-transform: uppercase;
 	text-align: center;
 	letter-spacing: 1px;
-	@media (max-width: 530px) {
-		font-size: 0.7em;
+	line-height: 16px;
+	max-width: 31ch;
+	@media (min-width: 530px) {
+		font-size: 16px;
 		line-height: 1em;
-		max-width: 31ch;
+		max-width: 100%;
 	}
+`;
+
+const IconSpan = styled.span`
+	position: relative;
+	top: 1px;
 `;
 
 const Icon = styled(MdEmojiObjects)`
@@ -40,9 +48,9 @@ const Icon = styled(MdEmojiObjects)`
 export const NewsBanner = ({ content }: NewsBannerProps) => (
 	<Container>
 		<Content>
-			<span>
+			<IconSpan>
 				<Icon />
-			</span>
+			</IconSpan>
 			{content}
 		</Content>
 	</Container>

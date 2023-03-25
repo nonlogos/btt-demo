@@ -5,7 +5,7 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
 import { mediaBreakpoints } from '../../utils';
-import { BaseSection, header } from '../global';
+import { BaseSection, header } from '../';
 import bioImage from '../../public/bio.jpg';
 
 const Container = styled(BaseSection)`

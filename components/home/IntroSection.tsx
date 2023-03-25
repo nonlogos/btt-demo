@@ -3,7 +3,6 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import styled from 'styled-components';
 
-import { SectionHeader } from '../global';
 import { mediaBreakpoints } from '../../utils/animation/matchMedia';
 
 const IntroContainer = styled.div`
@@ -160,7 +159,7 @@ export const IntroSection = () => {
 	return (
 		<IntroContainer className="intro-bkgd" ref={elem}>
 			<IntroText className="intro-content">
-				<SectionHeader>Get Ready to Sweat!</SectionHeader>
+				{/* <SectionHeader>Get Ready to Sweat!</SectionHeader> */}
 				<p>
 					Get ready to unleash your inner warrior and dominate the mat with Brazilian Jiu Jitsu (BJJ). This dynamic
 					martial art has taken the world by storm with its fierce focus on grappling techniques.

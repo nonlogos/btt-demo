@@ -5,8 +5,8 @@ export const GlobalStyle = createGlobalStyle`
     /* colors */
     --font-color-dark: hsl(216.92, 10.24%, 24.9%);
     --font-color-light: hsl(0, 0%, 94.9%);
-    --bkgd-top-color: hsl(0, 0%, 94.9%);
-    --bkgd-section-color: hsla(204, 15.15%, 93.53%, 1);
+    --bkgd-base-color: white;
+    --bkgd-section-color: hsl(204, 15.15%, 93.53%);
     --bkgd-highlight-color:  hsl(49, 78%, 66%);
     --secondary-color: hsl(212.31, 66%, 53.14%);
     --primary-color: black;
@@ -28,6 +28,8 @@ export const GlobalStyle = createGlobalStyle`
     --min-height: max(70vmin, 425px);
     /* shadows */
     --box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.65);
+    --lg-txt-shadow: black 2px 0 15px;
+	  --sm-txt-shadow: black 1px 0 3px;
     /* CSS Reset */
     /*
   1. Use a more-intuitive box-sizing model.
@@ -75,7 +77,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
       Helvetica Neue, sans-serif;
     color: var(--primary-color);
-    background: var(--bkgd-top-color);
+    background: var(--bkgd-base-color);
     font-size: clamp(1.125rem, calc(1rem + 0.2vmin), 1.2rem);
     line-height: clamp(1.4rem, calc(1.5rem + 0.5vmin), 1.7rem);
     font-weight: 300;
@@ -83,24 +85,37 @@ export const GlobalStyle = createGlobalStyle`
     width: 100vw;
   }
 
-  a {
-    color: inherit;
-    text-decoration: none;
+  ul {
+    padding-left: 0;
   }
-
-  a:hover {
-    color: hsla(223, 89%, 54%, 1);
+  li {
+    list-style-type: none;
   }
 
   * {
     box-sizing: border-box;
   }
 
-  @media (prefers-color-scheme: dark) {
-    html {
-      color-scheme: dark;
+  .nav-link-active {
+    cursor: not-allowed;
+    opacity: 0.7;
+    pointer-events: none;
+    &:before {
+      content: '';
+      position: absolute;
+      border-left: 3px solid var(--light-color);
+      height: calc(1em - 3px);
+      left: -8px;
+      top: 3px;
     }
-    body {
+  }
+  a {
+    position: relative;
+    color: inherit;
+    text-decoration: none;
+    &:hover {
+      color: var(--secondary-color);
+
     }
   }
 `;

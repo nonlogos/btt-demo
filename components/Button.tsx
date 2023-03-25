@@ -1,7 +1,7 @@
 import { useState, useRef, ReactNode } from 'react';
 import styled from 'styled-components';
 
-import { roboto } from '../../utils';
+import { roboto } from '../utils';
 
 interface ButtonProps {
 	Icon?: any;
@@ -15,14 +15,15 @@ export const StyledButton = styled.button`
 	align-items: center;
 	justify-content: center;
 	gap: var(--sp-base);
-	padding: var(--sp-2x);
+	padding: var(--sp-base) calc(var(--sp-base) + 3px);
 	background-color: var(--primary-color);
 	border: none;
 	border-radius: 6px;
+	color: var(--font-color-light);
 	font-size: 14px;
 	font-weight: 500;
 	text-transform: uppercase;
-	letter-spacing: 0.8px;
+	letter-spacing: 1.5px;
 	cursor: pointer;
 	transition: background-color var(--animation);
 	@media (min-width: 500px) {
@@ -35,7 +36,7 @@ export const StyledButton = styled.button`
 		background-color: var(--secondary-color);
 		& svg {
 			transform: ${({ buttonWidth }: { buttonWidth?: number | undefined }) =>
-				buttonWidth ? `translateX(calc(${buttonWidth / 2 - 32}px + (1em / 2) ))` : 'translateX(0px)'};
+				buttonWidth ? `translateX(calc(${buttonWidth / 2 - 30}px + (1em / 2) ))` : 'translateX(0px)'};
 		}
 	}
 	& * {

@@ -4,8 +4,7 @@ import { MdEmail } from 'react-icons/md';
 import { AiFillInstagram } from 'react-icons/ai';
 import { BsFillPhoneFill } from 'react-icons/bs';
 
-import { Map } from '../global';
-import { BaseSection, SectionHeader } from '../global';
+import { BaseSection, Map } from '../';
 
 const ContactUsSection = styled(BaseSection)`
 	position: relative;
@@ -93,7 +92,7 @@ export const ContactUs = () => {
 	return (
 		<ContactUsSection>
 			<ContactContent>
-				<SectionHeader>Get Started</SectionHeader>
+				{/* <SectionHeader>Get Started</SectionHeader> */}
 				<p>
 					Nemo enim ipsam volup tatem quia voluptas sit aspe natur aut odit aut fugit, sed quia consetur magni dolores
 					eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem.
