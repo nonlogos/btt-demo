@@ -7,11 +7,12 @@ import { mainNavList } from './MainNav';
 
 const StyledPaper = styled(Paper)`
 	z-index: 100;
-	& .css-imwso6-MuiBottomNavigationAction-label.Mui-selected {
+	& .MuiBottomNavigationAction-label.Mui-selected {
 		line-height: 14px;
 		text-transform: capitalize;
 	}
-	& .css-1bjk3jo-MuiButtonBase-root-MuiBottomNavigationAction-root {
+
+	& .MuiButtonBase-root.MuiBottomNavigationAction-root.Mui-selected {
 		min-width: 74px;
 	}
 `;
