@@ -29,24 +29,26 @@ export const Testimonials = () => {
 				<div className="content">
 					<Testimonial title="Isreal is AWESOME" author="Cindy Suzuki" rank="White Belt">
 						<TextItalic>
-							I love BTT for so many reasons. It's family-friendly, great for beginners with no experience, and led by
-							talented, down-to-earth instructors.
+							I love BTT for so many reasons. It&apos;s family-friendly, great for beginners with no experience, and led
+							by talented, down-to-earth instructors.
 						</TextItalic>
 						<TextItalic>
-							Israel gives incredible instruction, but he's also one of the funniest, nicest guys you'll meet. He
-							attracts like-minded people who are all super supportive and have desire to grow and get better together.
+							Israel gives incredible instruction, but he&apos;s also one of the funniest, nicest guys you&apos;ll meet.
+							He attracts like-minded people who are all super supportive and have desire to grow and get better
+							together.
 						</TextItalic>
 					</Testimonial>
 				</div>
 				<div>
 					<Testimonial title="Isreal is more AWESOME" author="Cindy Suzuki" rank="White Belt">
 						<TextItalic>
-							I love BTT for so many reasons. It's family-friendly, great for beginners with no experience, and led by
-							talented, down-to-earth instructors.
+							I love BTT for so many reasons. It&apos;s family-friendly, great for beginners with no experience, and led
+							by talented, down-to-earth instructors.
 						</TextItalic>
 						<TextItalic>
-							Israel gives incredible instruction, but he's also one of the funniest, nicest guys you'll meet. He
-							attracts like-minded people who are all super supportive and have desire to grow and get better together.
+							Israel gives incredible instruction, but he&apos;s also one of the funniest, nicest guys you&apos;ll meet.
+							He attracts like-minded people who are all super supportive and have desire to grow and get better
+							together.
 						</TextItalic>
 					</Testimonial>
 				</div>
