@@ -17,3 +17,6 @@ export * from './PreEnrolling';
 export * from './Footer';
 export * from './ActiveLink';
 export * from './MobileNavBar';
+export * from './HeroBanner';
+export * from './Map';
+export * from './PageTitle';

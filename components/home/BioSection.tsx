@@ -127,8 +127,8 @@ export const BioSection = () => {
 				<div className="content">
 					<p>
 						Owner and instructor of Brazilian Top Team Lago Vista. With over a decade of BJJ training under his belt,
-						Israel is a formidable force on the mat. He's been with the Brazilian Top Team family since 2016, and his
-						skills as an IBJJF competitor and multiple-time IBJJF champion speak for themselves.
+						Israel is a formidable force on the mat. He&apos;s been with the Brazilian Top Team family since 2016, and
+						his skills as an IBJJF competitor and multiple-time IBJJF champion speak for themselves.
 					</p>
 					<p>
 						Israel is also known as one of the most friendly and constructive instructors you’ll ever work with. From

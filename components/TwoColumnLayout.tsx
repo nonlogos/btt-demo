@@ -8,7 +8,7 @@ interface TwoColumnLayoutProps {
 	children?: ReactNode;
 	Image: any;
 	title: string;
-	subTitle?: string;
+	subtitle?: string;
 	actionText?: string;
 	actionLink?: string;
 }
@@ -18,6 +18,10 @@ type StyledProps = { contentRight: boolean };
 const Container = styled.section`
 	min-height: var(--min-height);
 	background: var(--bkgd-base-color);
+	padding-bottom: var(--sp-6x);
+	@media (min-width: 707px) {
+		padding-bottom: 0;
+	}
 `;
 
 const ImageContainer = styled.div`
@@ -69,8 +73,14 @@ const TextContainer = styled(Box)`
 
 const TextHeaderContainer = styled.div`
 	width: 100%;
-	margin-bottom: var(--sp-4x);
 	text-align: left;
+	margin-bottom: var(--sp-base);
+	@media (min-width: 707px) {
+		margin-bottom: var(--sp-2x);
+	}
+	& h3 {
+		margin-bottom: 0;
+	}
 `;
 
 const TextBodyContainer = styled.div`
@@ -100,7 +110,7 @@ export const TwoColumnLayout = ({
 	contentRight = false,
 	Image,
 	title,
-	subTitle,
+	subtitle,
 	children,
 	actionText,
 	actionLink,
@@ -117,7 +127,7 @@ export const TwoColumnLayout = ({
 				<TextContainer>
 					<TextHeaderContainer>
 						<header.H3>{title}</header.H3>
-						<Subtitle>{subTitle}</Subtitle>
+						{subtitle && <Subtitle>{subtitle}</Subtitle>}
 					</TextHeaderContainer>
 					<TextBodyContainer>{children}</TextBodyContainer>
 					{actionText && (

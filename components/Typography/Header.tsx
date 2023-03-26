@@ -16,28 +16,28 @@ interface Header {
 }
 
 const StyledH1 = styled.h1`
-	font-size: clamp(1.9rem, 7vmin, 72px);
-	line-height: clamp(2.1rem, 8vmin, 78px);
+	font-size: clamp(1.9rem, 1.9rem + 0.8vmin, 72px);
+	line-height: clamp(2.1rem, 2.1rem + 0.9vmin, 78px);
 	text-transform: uppercase;
 `;
 
 const StyledH2 = styled.h2`
-	font-size: clamp(2.5rem, 2.5rem + 0.8vmin, 64px);
-	line-height: clamp(2.5rem, 2.5rem + 0.9vmin, 72px);
+	font-size: clamp(1.7rem, 1.7rem + 0.8vmin, 64px);
+	line-height: clamp(2rem, 2rem + 0.9vmin, 72px);
 	text-transform: uppercase;
 `;
 
 const StyledH3 = styled.h3`
 	margin-bottom: var(--sp-2x);
-	font-size: clamp(1.5rem, 2rem + 0.5vmin, 48px);
-	line-height: clamp(1.7rem, 2rem + 0.5vmin, 56px);
+	font-size: clamp(1.5rem, 1.5rem + 0.5vmin, 48px);
+	line-height: clamp(1.7rem, 1.7rem + 0.5vmin, 56px);
 	text-transform: uppercase;
 `;
 
 const StyledH4 = styled.h3`
 	margin-bottom: var(--sp-2x);
-	font-size: clamp(1.3rem, 1.7rem + 0.5vmin, 32px);
-	line-height: clamp(1.5rem, 1.9rem + 0.5vmin, 37px);
+	font-size: clamp(1.3rem, 1.3rem + 0.5vmin, 32px);
+	line-height: clamp(1.5rem, 1.5rem + 0.5vmin, 37px);
 `;
 
 const H1 = ({ children, className }: HeaderProps) => (

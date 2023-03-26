@@ -29,7 +29,8 @@ export const TextItalic = ({ children, className }: TextProps) => (
 );
 
 export const Subtitle = styled(StyledText)`
-	margin-top: var(--sp-2x);
+	margin-top: var(--sp-base);
+	margin-bottom: var(--sp-base);
 	font-weight: 600;
 	line-height: 1.2em;
 	letter-spacing: 0.1px;

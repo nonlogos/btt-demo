@@ -29,8 +29,7 @@ const Header = styled.h2`
 	margin: 0;
 	margin-bottom: 2px;
 	max-width: 800px;
-	background-image: var(--linear-gradients), url('/roll_feature.jpg');
-	background-blend-mode: multiply;
+	background-image: url('/roll_5.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: top 68% left 50%;

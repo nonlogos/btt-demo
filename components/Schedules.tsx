@@ -42,7 +42,9 @@ export const Schedules = ({ bkgdImage = false }: SchedulesProps) => {
 				<Button>Enroll Today*</Button>
 			</ActionsContianer>
 			<Text>All classes are beginner friendly</Text>
-			<Disclaimer dark>*Please note you'll be redirected to Gymdesk, a safe and secure website, to sign up.</Disclaimer>
+			<Disclaimer dark>
+				*Please note you&apos;ll be redirected to Gymdesk, a safe and secure website, to sign up.
+			</Disclaimer>
 		</Container>
 	);
 };

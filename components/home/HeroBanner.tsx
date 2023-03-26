@@ -24,7 +24,7 @@ const HeroBannerContainer = styled.section`
 		height: 60vh;
 	}
 	@media (min-width: 800px) {
-		height: min(100vh, var(---max-height));
+		height: min(100vh, var(max-height));
 	}
 
 	@media (min-width: 1921px) {
@@ -79,13 +79,13 @@ const BodyText = styled(Text)`
 	margin-bottom: var(--sp-6x);
 	font-weight: 400;
 	font-size: clamp(1.2rem, 2vmin, 1.6rem);
-	text-shadow: var(--lg-txt-shadow);
+	text-shadow: var(--sm-txt-shadow);
 `;
 const ActionsContianer = styled.div`
 	display: flex;
 	gap: var(--sp-2x);
 	& button {
-		box-shadow: var(--sm-shadow);
+		box-shadow: var(--box-shadow);
 	}
 `;
 

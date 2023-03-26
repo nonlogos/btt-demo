@@ -2,18 +2,8 @@ import styled from 'styled-components';
 import Image from 'next/legacy/image';
 import Head from 'next/head';
 
-import {
-	NewsBanner,
-	MainHeader,
-	TaglineBanner,
-	TwoColumnLayout,
-	Schedules,
-	Testimonials,
-	PreEnrolling,
-	Text,
-	Footer,
-} from '../components';
-import { HeroBanner, IntroSection, BioSection, ContactUs } from '../components/home';
+import { TaglineBanner, TwoColumnLayout, Schedules, Testimonials, PreEnrolling, Text } from '../components';
+import { HeroBanner } from '../components/home';
 import { homeText } from '../siteContent';
 import adultsProgramImage from '../public/roll_feature.jpg';
 import kidsProgramImage from '../public/kids.jpg';
@@ -50,14 +40,14 @@ export default function Home() {
 					<Image src={adultsProgramImage} alt="Adult Programs" placeholder="blur" layout="fill" objectFit="cover" />
 				)}
 				title="Adult Programs"
-				subTitle="Rise to the Challenge"
+				subtitle="Rise to the Challenge"
 				actionText="Learn more"
 				contentRight
 			>
 				<Text>
-					Learn self-defense skills, lose weight, and boost your confidence as you train among champions. Whether you're
-					seasoned fighter training for a competition or a beginner looking to get fit, we'll help you reach your goals
-					no matter your age or skill level.
+					Learn self-defense skills, lose weight, and boost your confidence as you train among champions. Whether
+					you&apos;re seasoned fighter training for a competition or a beginner looking to get fit, we&apos;ll help you
+					reach your goals no matter your age or skill level.
 				</Text>
 				<Text>Welcome to the Team!</Text>
 			</TwoColumnLayout>
@@ -66,7 +56,7 @@ export default function Home() {
 					<Image src={kidsProgramImage} alt="Kids Academy" placeholder="blur" layout="fill" objectFit="cover" />
 				)}
 				title="Kids Academy"
-				subTitle="The path to a healthier, confident, and more disciplined life"
+				subtitle="The path to a healthier, confident, and more disciplined life"
 				actionText="Get on the path!"
 			>
 				<Text>
@@ -80,7 +70,7 @@ export default function Home() {
 					<Image src={bioImage} alt="Professor Israel Davila" placeholder="blur" layout="fill" objectFit="cover" />
 				)}
 				title="Instructor"
-				subTitle="Professor Israel Davila, Owner and Lead Instructor Brazilian Top Team Lago Vista"
+				subtitle="Professor Israel Davila, Owner and Lead Instructor Brazilian Top Team Lago Vista"
 				actionText="Meet Isreal"
 				contentRight
 			>
@@ -89,8 +79,8 @@ export default function Home() {
 					2021, solidifying his place as a master of the art.
 				</Text>
 				<Text>
-					Whether you're a seasoned BJJ veteran or just starting out, Israel's knowledge, experience, and methods will
-					take your skills to the next level.
+					Whether you&apos;re a seasoned BJJ veteran or just starting out, Israel&apos;s knowledge, experience, and
+					methods will take your skills to the next level.
 				</Text>
 			</TwoColumnLayout>
 

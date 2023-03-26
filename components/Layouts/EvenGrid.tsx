@@ -4,7 +4,7 @@ import styled from 'styled-components';
  * EvenGrid
  */
 interface EvenGridProps {
-	minWidth?: string;
+	minWidth: string;
 	gap?: string;
 	children?: React.ReactNode;
 }
@@ -18,7 +18,7 @@ const StyledEvenGrid = styled.div`
 	grid-auto-flow: dense;
 `;
 
-export const EvenGrid = ({ minWidth = '0px', gap, children }: EvenGridProps) => (
+export const EvenGrid = ({ minWidth, gap, children }: EvenGridProps) => (
 	<StyledEvenGrid minWidth={minWidth} gap={gap}>
 		{children}
 	</StyledEvenGrid>

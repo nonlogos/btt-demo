@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import { ActiveLink } from './ActiveLink';
-import { Home, Info, List, LocalPhone, AddCircle } from '@mui/icons-material';
+import { Home, CalendarViewMonth, List, LocalPhone, PersonAddAlt1 } from '@mui/icons-material';
 
 export const mainNavList = [
 	{ url: '/', name: 'home', icon: Home },
-	{ url: '/about', name: 'about', icon: Info },
+	{ url: '/about', name: 'about', icon: CalendarViewMonth },
 	{ url: '/programs', name: 'programs', icon: List },
 	{ url: '/contact', name: 'contact', icon: LocalPhone },
-	{ url: '#', name: 'sign Up', icon: AddCircle },
+	{ url: '#', name: 'sign Up', icon: PersonAddAlt1 },
 ];
 
 const StyledLi = styled.li`

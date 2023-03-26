@@ -27,7 +27,7 @@ const StyledColumn = styled.div`
 	align-items: start;
 	width: 100%;
 	height: 100%;
-	padding: var(--sp-5x) var(--sp-3x) 0;
+	padding: var(--sp-5x) var(--sp-3x);
 	line-height: 2.5em;
 	@media (min-width: 780px) {
 		padding: var(--sp-10x) var(--sp-8x);

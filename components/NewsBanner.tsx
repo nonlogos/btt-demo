@@ -13,10 +13,9 @@ const Container = styled(Box)`
 	padding: 0.5rem 1rem;
 `;
 
-const Content = styled(Text)`
+const Content = styled.p`
 	margin: 0;
 	margin-top: -4px;
-	margin-bottom: 0; // override existing styles
 	font-size: 14px;
 	font-weight: 400;
 	text-transform: uppercase;
