@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import Link from 'next/link';
 import styled from 'styled-components';
 
 import { EvenGrid, header, Box, Subtitle, Button } from './';
@@ -118,9 +119,11 @@ export const TwoColumnLayout = ({
 						{subtitle && <Subtitle>{subtitle}</Subtitle>}
 					</TextHeaderContainer>
 					<TextBodyContainer>{children}</TextBodyContainer>
-					{actionText && (
+					{actionText && actionLink && (
 						<ButtonContainer>
-							<StyledButton>{actionText}</StyledButton>
+							<StyledButton>
+								<Link href={actionLink}>{actionText}</Link>
+							</StyledButton>
 						</ButtonContainer>
 					)}
 				</TextContainer>

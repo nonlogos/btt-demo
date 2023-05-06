@@ -8,8 +8,6 @@ import { oswald } from '../../utils';
 interface HeroBannerProps {
 	title: string;
 	bodyText?: string;
-	buttonOne?: string;
-	buttonTwo?: string;
 	disclaimer?: string;
 }
 
@@ -84,7 +82,7 @@ const BodyText = styled(Text)`
 
 // TODO investigate using iframe for video
 
-export const HomeHeroBanner = ({ title, bodyText, buttonOne, buttonTwo, disclaimer }: HeroBannerProps) => {
+export const HomeHeroBanner = ({ title, bodyText, disclaimer }: HeroBannerProps) => {
 	const heroVid = useRef<HTMLVideoElement | null>(null);
 	const titleStrings = title.split(/<span>(.*?)<\/span>/g).filter(Boolean); // remove empty string result
 

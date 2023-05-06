@@ -31,8 +31,6 @@ export default function Adults() {
 				bkgdImage="roll_5"
 				title="Build confidence. Gain Strength. Get after it"
 				bodyText="Empower yourself at the Ultimate Brazilian Jiu-Jitsu Training Destination in Lago Vista."
-				buttonOne={buttonOne}
-				buttonTwo={buttonTwo}
 				disclaimer={disclaimer}
 			/>
 			<PageTitle title="Adult Co-ed Classes">

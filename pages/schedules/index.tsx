@@ -51,7 +51,7 @@ export default function Schedules() {
 				bkgdImage="group_profile"
 				title="AWAKEN YOUR INNER CHAMPION AT BTT LAGO VISTA"
 				bodyText="Build Confidence. Gain Strength. Take Charge."
-				buttonOne={buttonOne}
+				showButtonTwo={false}
 				disclaimer={disclaimer}
 			/>
 			<PageTitle title="Class Schedules" />

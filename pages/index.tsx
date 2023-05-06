@@ -27,13 +27,7 @@ export default function Home() {
 				<title>BTT Lago Vista | Home</title>
 				<meta name="description" content="BTT Lago Vista" />
 			</Head>
-			<HomeHeroBanner
-				title={title}
-				bodyText={bodyText}
-				buttonOne={buttonOne}
-				buttonTwo={buttonTwo}
-				disclaimer={disclaimer}
-			/>
+			<HomeHeroBanner title={title} bodyText={bodyText} disclaimer={disclaimer} />
 			<TaglineBanner title={taglineTitle} bodyText={taglineBodyText} />
 			<TwoColumnLayout
 				Image={() => (
@@ -42,6 +36,7 @@ export default function Home() {
 				title="Adult Programs"
 				subtitle="Rise to the Challenge"
 				actionText="Learn more"
+				actionLink="/programs/adults"
 				contentRight
 			>
 				<Text>
@@ -58,6 +53,7 @@ export default function Home() {
 				title="Kids Academy"
 				subtitle="The path to a healthier, confident, and more disciplined life"
 				actionText="Get on the path!"
+				actionLink="/programs/kids"
 			>
 				<Text>
 					At our academy, kids will learn respect, self-defense, and make lasting connections with their fellow
@@ -72,6 +68,7 @@ export default function Home() {
 				title="Instructor"
 				subtitle="Professor Israel Davila, Owner and Lead Instructor Brazilian Top Team Lago Vista"
 				actionText="Meet Isreal"
+				actionLink="/about"
 				contentRight
 			>
 				<Text>

@@ -22,8 +22,6 @@ export default function About() {
 				bkgdImage="roll_feature"
 				title="TRAIN AT THE ULTIMATE BRAZILIAN JIU-JITSU ACADEMY IN LAGO VISTA"
 				bodyText="Led by experienced black belt & multiple-time IBJJF champion, Israel Davila"
-				buttonOne={buttonOne}
-				buttonTwo={buttonTwo}
 				disclaimer={disclaimer}
 			/>
 			<PageTitle title="MEET PROFESSOR ISRAEL DAVILA" />

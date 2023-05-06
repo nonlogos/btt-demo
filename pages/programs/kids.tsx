@@ -24,8 +24,6 @@ export default function Kids() {
 				bkgdImage="group_kids"
 				title="A PATH TO A MORE CONFIDENT LIFE"
 				bodyText="Empower your child with the skills of self-defense, discipline, and impenetrable confidence."
-				buttonOne={buttonOne}
-				buttonTwo={buttonTwo}
 				disclaimer={disclaimer}
 			/>
 			<PageTitle title="KIDS ACADEMY">

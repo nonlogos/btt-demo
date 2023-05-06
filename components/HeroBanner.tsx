@@ -9,8 +9,7 @@ interface HeroBannerProps {
 	title: string;
 	subtitle?: string;
 	bodyText?: string;
-	buttonOne?: string;
-	buttonTwo?: string;
+	showButtonTwo?: boolean;
 	disclaimer?: string;
 }
 
@@ -109,8 +108,7 @@ export const HeroBanner = ({
 	title,
 	subtitle,
 	bodyText,
-	buttonOne,
-	buttonTwo,
+	showButtonTwo = true,
 	disclaimer,
 }: HeroBannerProps) => {
 	return (
@@ -121,7 +119,7 @@ export const HeroBanner = ({
 					{subtitle && <Subtitle>{subtitle}</Subtitle>}
 				</Title>
 				{bodyText && <BodyText>{bodyText}</BodyText>}
-				<ActionsContainer />
+				<ActionsContainer showButtonTwo={showButtonTwo} />
 			</HeroContent>
 			<Disclaimer dark={false}>{disclaimer}</Disclaimer>
 		</HeroBannerContainer>

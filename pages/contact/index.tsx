@@ -15,14 +15,7 @@ export default function Contact() {
 				<title>BTT Lago Vista | Contact</title>
 				<meta name="description" content="BTT Lago Vista Contact" />
 			</Head>
-			<HeroBanner
-				bkgdImage="roll_2"
-				title="CONTACT"
-				bodyText="BRAZILIAN TOP TEAM LAGO VISTA"
-				buttonOne={buttonOne}
-				buttonTwo={buttonTwo}
-				disclaimer={disclaimer}
-			/>
+			<HeroBanner bkgdImage="roll_2" title="CONTACT" bodyText="BRAZILIAN TOP TEAM LAGO VISTA" disclaimer={disclaimer} />
 			<PageTitle title="Y'ALL COME BACK NOW, YA HEAR?" />
 			<ContactSources />
 			<Map />
