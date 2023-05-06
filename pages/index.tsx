@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import Image from 'next/legacy/image';
 import Head from 'next/head';
 
-import { TaglineBanner, TwoColumnLayout, Schedules, Testimonials, PreEnrolling, Text } from '../components';
+import { TaglineBanner, TwoColumnLayout, Schedule, Testimonials, PreEnrolling, Text } from '../components';
 import { HeroBanner } from '../components/home';
 import { homeText } from '../siteContent';
 import adultsProgramImage from '../public/roll_feature.jpg';
-import kidsProgramImage from '../public/kids.jpg';
+import kidsProgramImage from '../public/kids_girl.jpg';
 import bioImage from '../public/bio.jpg';
 
 const {
@@ -84,7 +84,7 @@ export default function Home() {
 				</Text>
 			</TwoColumnLayout>
 
-			<Schedules bkgdImage />
+			<Schedule bkgdImage />
 			<Testimonials />
 			<PreEnrolling />
 		</div>

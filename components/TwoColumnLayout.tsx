@@ -16,11 +16,10 @@ interface TwoColumnLayoutProps {
 type StyledProps = { contentRight: boolean };
 
 const Container = styled.section`
-	min-height: var(--min-height);
 	background: var(--bkgd-base-color);
 	padding-bottom: var(--sp-6x);
 	@media (min-width: 707px) {
-		padding-bottom: 0;
+		padding-bottom: var(--sp-3x);
 	}
 `;
 
@@ -34,14 +33,6 @@ const ImageContainer = styled.div`
 		justify-content: center;
 		align-items: start;
 		height: 100%;
-		${({ contentRight }: StyledProps) => {
-			return contentRight ? `padding-right: var(--sp-6x)` : `padding-left: var(--sp-6x)`;
-		}}
-	}
-	@media (min-width: 1021px) {
-		${({ contentRight }: StyledProps) => {
-			return contentRight ? `padding-right: var(--sp-10x)` : `padding-left: var(--sp-10x)`;
-		}}
 	}
 `;
 
@@ -49,7 +40,6 @@ const ImageContent = styled.div`
 	position: relative;
 	min-height: 450px;
 	@media (min-width: 707px) {
-		margin-top: var(--sp-10x);
 		width: 90%;
 		border: 30px solid white;
 		box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.35);
@@ -64,10 +54,10 @@ const TextContainer = styled(Box)`
 	padding: var(--sp-4x);
 	text-align: center;
 	@media (min-width: 707px) {
-		padding: 10rem var(--sp-6x) var(--sp-6x);
+		padding: 28% var(--sp-6x) 0 var(--sp-6x);
 	}
 	@media (min-width: 1021px) {
-		padding: 10rem var(--sp-10x);
+		padding: 28% var(--sp-10x) 0 var(--sp-10x);
 	}
 `;
 
@@ -99,7 +89,6 @@ const ButtonContainer = styled(Box)`
 `;
 
 const StyledButton = styled(Button)`
-	/* margin-top: var(--sp-2x); */
 	width: 100%;
 	@media (min-width: 707px) {
 		width: auto;
@@ -115,7 +104,6 @@ export const TwoColumnLayout = ({
 	actionText,
 	actionLink,
 }: TwoColumnLayoutProps) => {
-	console.log(Image);
 	return (
 		<Container>
 			<EvenGrid minWidth="280px">

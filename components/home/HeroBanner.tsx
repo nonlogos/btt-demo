@@ -23,7 +23,7 @@ const HeroBannerContainer = styled.section`
 	@media (min-width: 450px) {
 		height: 60vh;
 	}
-	@media (min-width: 800px) {
+	@media (min-width: 600px) {
 		height: min(100vh, var(max-height));
 	}
 

@@ -2,15 +2,15 @@ import styled from 'styled-components';
 import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
 
-import { Box, header, TextItalic } from '../';
+import { TextItalic } from '../';
 import { Testimonial } from './Testimonial';
 
 const SliderContainer = styled.div`
-	height: 100dvh;
+	height: 80dvh;
 	min-height: 25rem;
 	text-align: center;
 	@media (min-width: 707px) {
-		height: 70dvh !important;
+		height: 70dvh;
 	}
 	/* hack to override slider styles from react-awesome-slider  */
 	& .awssld--organic-arrows {

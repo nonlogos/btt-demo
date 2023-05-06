@@ -30,8 +30,8 @@ const HeroBannerContainer = styled.section`
 	@media (min-width: 450px) {
 		height: min(40vh, var(--max-height));
 	}
-	@media (min-width: 800px) {
-		height: min(100vh, var(--max-height));
+	@media (min-width: 500px) {
+		height: min(80vh, var(--max-height));
 	}
 
 	@media (min-width: 1921px) {
@@ -57,9 +57,12 @@ const HeroContent = styled.div`
 	}
 `;
 
-const Title = styled(header.H1)`
+const Title = styled.p`
+	font-size: clamp(2rem, 2rem + 0.8vmin, 64px);
 	text-shadow: var(--sm-txt-shadow);
-	line-height: 1em;
+	line-height: clamp(2.2rem, 2.2rem + 0.9vmin, 70px);
+	text-transform: uppercase;
+	font-weight: 700;
 	max-width: 31ch;
 	@media (max-width: 850px) {
 		display: inline-block;
@@ -113,8 +116,6 @@ export const HeroBanner = ({
 	buttonTwo,
 	disclaimer,
 }: HeroBannerProps) => {
-	const titleStrings = title.split(/<span>(.*?)<\/span>/g).filter(Boolean); // remove empty string result
-
 	return (
 		<HeroBannerContainer bkgdImage={bkgdImage}>
 			<HeroContent>
@@ -125,7 +126,7 @@ export const HeroBanner = ({
 				{bodyText && <BodyText>{bodyText}</BodyText>}
 				<ActionsContianer>
 					<Button Icon={MdPersonAddAlt1}>{buttonOne}</Button>
-					<Button Icon={MdOutlineCalendarViewMonth}>{buttonTwo}</Button>
+					{buttonTwo && <Button Icon={MdOutlineCalendarViewMonth}>{buttonTwo}</Button>}
 				</ActionsContianer>
 			</HeroContent>
 			<Disclaimer dark={false}>{disclaimer}</Disclaimer>

@@ -16,8 +16,8 @@ interface Header {
 }
 
 const StyledH1 = styled.h1`
-	font-size: clamp(1.9rem, 1.9rem + 0.8vmin, 72px);
-	line-height: clamp(2.1rem, 2.1rem + 0.9vmin, 78px);
+	font-size: clamp(3rem, 3rem + 0.8vmin, 72px);
+	line-height: clamp(3.2rem, 3.2rem + 0.9vmin, 78px);
 	text-transform: uppercase;
 `;
 

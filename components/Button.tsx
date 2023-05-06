@@ -49,6 +49,11 @@ export const StyledButton = styled.button`
 	& .hidden {
 		opacity: 0;
 	}
+	& a {
+		&:hover {
+			color: var(--font-color-light);
+		}
+	}
 `;
 
 export const Button = ({ Icon, className, children }: ButtonProps) => {

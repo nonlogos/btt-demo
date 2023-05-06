@@ -1,33 +1,15 @@
-import styled from 'styled-components';
 import Image from 'next/legacy/image';
 import Head from 'next/head';
 
-import {
-	HeroBanner,
-	PageTitle,
-	TwoColumnLayout,
-	Schedules,
-	Testimonials,
-	PreEnrolling,
-	Text,
-	Box,
-	header,
-} from '../../components';
+import { HeroBanner, PageTitle, TwoColumnLayout, Schedule, Testimonials, PreEnrolling, Text } from '../../components';
 import { homeText } from '../../siteContent';
 import actionsImage from '../../public/roll_5.jpg';
-import kidsProgramImage from '../../public/kids.jpg';
+import champImage from '../../public/champ.jpg';
 import bioImage from '../../public/bio.jpg';
-import bioTwoImage from '../../public/bio_2.jpg';
 
 const {
-	newsBanner,
-	heroBanner: { title, bodyText, buttonOne, buttonTwo, disclaimer },
-	taglineBanner: { title: taglineTitle, bodyText: taglineBodyText },
+	heroBanner: { buttonOne, buttonTwo, disclaimer },
 } = homeText;
-
-const PageTitleContainer = styled(Box)`
-	height: 30dvh;
-`;
 
 export default function About() {
 	return (
@@ -44,7 +26,7 @@ export default function About() {
 				buttonTwo={buttonTwo}
 				disclaimer={disclaimer}
 			/>
-			<PageTitle>MEET PROFESSOR ISRAEL DAVILA</PageTitle>
+			<PageTitle title="MEET PROFESSOR ISRAEL DAVILA" />
 			<TwoColumnLayout
 				Image={() => (
 					<Image src={bioImage} alt="Professor Isreal Davila" placeholder="blur" layout="fill" objectFit="cover" />
@@ -76,13 +58,7 @@ export default function About() {
 			</TwoColumnLayout>
 			<TwoColumnLayout
 				Image={() => (
-					<Image
-						src={kidsProgramImage}
-						alt="Israel with his students"
-						placeholder="blur"
-						layout="fill"
-						objectFit="cover"
-					/>
+					<Image src={champImage} alt="Israel winning competition" placeholder="blur" layout="fill" objectFit="cover" />
 				)}
 				title="CHAMPION, ON AND OFF THE MAT"
 				contentRight
@@ -99,7 +75,7 @@ export default function About() {
 				<Text>You&apos;re guaranteed to have a good laugh or two in his classes (or he&apos;ll do 10 sprawls!)</Text>
 			</TwoColumnLayout>
 
-			<Schedules bkgdImage />
+			<Schedule bkgdImage />
 			<Testimonials />
 			<PreEnrolling />
 		</div>

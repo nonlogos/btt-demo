@@ -25,7 +25,7 @@ export const GlobalStyle = createGlobalStyle`
     --sp-10x: calc(var(--sp-unit) * 10px);
     /* utils */
     --news-banner-height: 3rem;
-    --min-height: max(70vmin, 425px);
+    --min-height: max(60vmin, 325px);
     /* shadows */
     --box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.65);
     --lg-txt-shadow: black 2px 0 15px;

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 import { Box, header, Text, Disclaimer, Button } from './';
-import adultsProgramImage from '../../public/group-kids.jpg';
 
 const Container = styled(Box)`
 	position: relative;
@@ -10,12 +9,12 @@ const Container = styled(Box)`
 	height: 30rem;
 	padding: var(--sp-2x);
 	text-align: center;
-	background: linear-gradient(to bottom, white 5%, #7b929c 98%), url('/group-kids.jpg');
+	background: linear-gradient(to bottom, white 5%, #7b929c 98%), url('/group_kids.jpg');
 	background-blend-mode: hard-light;
 	background-position: 48% -5%;
 	background-repeat: no-repeat;
 	background-size: cover;
-	border-top: 2px solid white; // to hide the bordeer of the image
+	border-top: 2px solid white; // to hide the border of the image
 	@media (min-width: 707px) {
 		margin-top: 8rem;
 	}
