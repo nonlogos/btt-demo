@@ -1,13 +1,14 @@
 import styled from 'styled-components';
+import { Home, Info, List, LocalPhone, PersonAddAlt1 } from '@mui/icons-material';
 import { ActiveLink } from './ActiveLink';
-import { Home, CalendarViewMonth, List, LocalPhone, PersonAddAlt1 } from '@mui/icons-material';
+import { SIGN_UP_URL } from '../siteContent';
 
 export const mainNavList = [
 	{ url: '/', name: 'home', icon: Home },
-	{ url: '/about', name: 'about', icon: CalendarViewMonth },
+	{ url: '/about', name: 'about', icon: Info },
 	{ url: '/programs', name: 'programs', icon: List },
 	{ url: '/contact', name: 'contact', icon: LocalPhone },
-	{ url: '#', name: 'sign Up', icon: PersonAddAlt1 },
+	{ url: SIGN_UP_URL, name: 'sign Up', icon: PersonAddAlt1 },
 ];
 
 const StyledLi = styled.li`

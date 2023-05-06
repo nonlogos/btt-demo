@@ -29,14 +29,6 @@ const Header = styled.h2`
 	margin: 0;
 	margin-bottom: 2px;
 	max-width: 800px;
-	background-image: url('/roll_5.jpg');
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: top 68% left 50%;
-	background-position-x: 68%;
-	background-position-y: 50%;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
 	font-size: clamp(3rem, 20vmin, 120px);
 	text-align: center;
 	font-weight: bold;

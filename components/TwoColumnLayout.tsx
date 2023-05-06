@@ -54,10 +54,10 @@ const TextContainer = styled(Box)`
 	padding: var(--sp-4x);
 	text-align: center;
 	@media (min-width: 707px) {
-		padding: 28% var(--sp-6x) 0 var(--sp-6x);
+		padding: 15% var(--sp-6x) 0 var(--sp-6x);
 	}
 	@media (min-width: 1021px) {
-		padding: 28% var(--sp-10x) 0 var(--sp-10x);
+		padding: 15% var(--sp-10x) 0 var(--sp-10x);
 	}
 `;
 

@@ -9,6 +9,7 @@ const StyledPaper = styled(Paper)`
 	z-index: 100;
 	& .MuiBottomNavigationAction-label.Mui-selected {
 		line-height: 14px;
+		font-size: 14px;
 		text-transform: capitalize;
 	}
 

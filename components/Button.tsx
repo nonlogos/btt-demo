@@ -64,6 +64,7 @@ export const Button = ({ Icon, className, children }: ButtonProps) => {
 
 	const handleMouseEnter = () => setIsHovered(true);
 	const handleMouseLeave = () => setIsHovered(false);
+
 	if (Icon) {
 		return (
 			<>
@@ -75,7 +76,7 @@ export const Button = ({ Icon, className, children }: ButtonProps) => {
 					ref={buttonRef}
 				>
 					<Icon />
-					<div className={isHovered && Icon ? 'hidden' : 'visible'}>{children}</div>
+					<span className={isHovered && Icon ? 'hidden' : 'visible'}>{children}</span>
 				</StyledButton>
 			</>
 		);

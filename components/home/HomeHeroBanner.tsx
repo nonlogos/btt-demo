@@ -1,8 +1,8 @@
 import { useRef } from 'react';
 import styled from 'styled-components';
-import { FiUserPlus, FiCalendar } from 'react-icons/fi';
 
-import { Button, header, Text, Disclaimer } from '../';
+import { ActionsContainer } from '../ActionsContainer';
+import { header, Text, Disclaimer } from '..';
 import { oswald } from '../../utils';
 
 interface HeroBannerProps {
@@ -21,14 +21,14 @@ const HeroBannerContainer = styled.section`
 	background: black;
 	color: var(--font-color-light);
 	@media (min-width: 450px) {
-		height: 60vh;
+		height: 65vh;
 	}
 	@media (min-width: 600px) {
-		height: min(100vh, var(max-height));
+		height: min(100vh, var(--max-height));
 	}
 
 	@media (min-width: 1921px) {
-		height: min(45vh, var(--max-height));
+		height: min(40vh, var(--max-height));
 	}
 `;
 
@@ -59,17 +59,17 @@ const HeroContent = styled.div`
 	}
 `;
 
-const Title = styled(header.H1)`
-	line-height: 1.2em;
+const Title = styled(header.H2)`
+	line-height: 1.3em;
 	text-shadow: var(--lg-txt-shadow);
 	& span {
 		display: block;
-		font-size: 1.5em;
+		font-size: 1.8em;
 		line-height: 1.1em;
 		@media (min-width: 850px) {
-			display: inline-block;
-			font-size: 1em;
-			line-height: 1em;
+			/* display: inline-block; */
+			font-size: 3em;
+			line-height: 1.2em;
 		}
 	}
 `;
@@ -81,17 +81,10 @@ const BodyText = styled(Text)`
 	font-size: clamp(1.2rem, 2vmin, 1.6rem);
 	text-shadow: var(--sm-txt-shadow);
 `;
-const ActionsContianer = styled.div`
-	display: flex;
-	gap: var(--sp-2x);
-	& button {
-		box-shadow: var(--box-shadow);
-	}
-`;
 
 // TODO investigate using iframe for video
 
-export const HeroBanner = ({ title, bodyText, buttonOne, buttonTwo, disclaimer }: HeroBannerProps) => {
+export const HomeHeroBanner = ({ title, bodyText, buttonOne, buttonTwo, disclaimer }: HeroBannerProps) => {
 	const heroVid = useRef<HTMLVideoElement | null>(null);
 	const titleStrings = title.split(/<span>(.*?)<\/span>/g).filter(Boolean); // remove empty string result
 
@@ -107,10 +100,7 @@ export const HeroBanner = ({ title, bodyText, buttonOne, buttonTwo, disclaimer }
 					{titleStrings[1]}
 				</Title>
 				<BodyText>{bodyText}</BodyText>
-				<ActionsContianer>
-					<Button Icon={FiUserPlus}>{buttonOne}</Button>
-					<Button Icon={FiCalendar}>{buttonTwo}</Button>
-				</ActionsContianer>
+				<ActionsContainer />
 			</HeroContent>
 			<Disclaimer dark={false}>{disclaimer}</Disclaimer>
 		</HeroBannerContainer>

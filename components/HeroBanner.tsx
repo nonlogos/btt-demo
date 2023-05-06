@@ -1,10 +1,7 @@
 import styled from 'styled-components';
-import { MdPersonAddAlt1, MdOutlineCalendarViewMonth } from 'react-icons/md';
 
-import { Box } from './Box';
-import { Button } from './Button';
-import { header, Text, Disclaimer } from './Typography';
-
+import { ActionsContainer } from './ActionsContainer';
+import { Text, Disclaimer } from './Typography';
 import { oswald } from '../utils';
 
 interface HeroBannerProps {
@@ -124,10 +121,7 @@ export const HeroBanner = ({
 					{subtitle && <Subtitle>{subtitle}</Subtitle>}
 				</Title>
 				{bodyText && <BodyText>{bodyText}</BodyText>}
-				<ActionsContianer>
-					<Button Icon={MdPersonAddAlt1}>{buttonOne}</Button>
-					{buttonTwo && <Button Icon={MdOutlineCalendarViewMonth}>{buttonTwo}</Button>}
-				</ActionsContianer>
+				<ActionsContainer />
 			</HeroContent>
 			<Disclaimer dark={false}>{disclaimer}</Disclaimer>
 		</HeroBannerContainer>

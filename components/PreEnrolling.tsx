@@ -1,6 +1,8 @@
 import styled from 'styled-components';
+import Link from 'next/link';
 
 import { Box, header, Text, Disclaimer, Button } from './';
+import { SIGN_UP_URL } from '../siteContent';
 
 const Container = styled(Box)`
 	position: relative;
@@ -25,7 +27,9 @@ export const PreEnrolling = () => {
 		<Container>
 			<header.H2>Pre-enrolling</header.H2>
 			<Text>The best time to start Brazilian Jiu-Jitsu was a year ago. The next best time is now.</Text>
-			<Button>Enroll Today *</Button>
+			<Button>
+				<Link href={SIGN_UP_URL}>Enroll Today*</Link>
+			</Button>
 			<Disclaimer dark>
 				*Please note you&apos;ll be redirected to Gymdesk, a safe and secure website, to sign up.
 			</Disclaimer>

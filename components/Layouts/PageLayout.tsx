@@ -18,7 +18,6 @@ const Main = styled.main`
 
 export const PageLayout = ({ children }: { children: React.ReactNode }) => {
 	const isMobile = useIsMobile();
-	console.log('isMobile', isMobile);
 	return (
 		<>
 			<Main>
