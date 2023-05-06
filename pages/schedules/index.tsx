@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 import Head from 'next/head';
 import Script from 'next/script';
-import Link from 'next/link';
 
-import { HeroBanner, PageTitle, header, Testimonials, PreEnrolling, Text, EvenGrid, Button } from '../../components';
+import { HeroBanner, PageTitle, header, Testimonials, PreEnrolling } from '../../components';
 import { homeText } from '../../siteContent';
 
 const {
@@ -11,7 +10,14 @@ const {
 } = homeText;
 
 const Container = styled.section`
-	margin-bottom: 3rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+`;
+
+const ScheduleContainer = styled.div`
+	margin-bottom: var(--sp-10x);
 `;
 
 const ProgramContainer = styled.div`
@@ -36,7 +42,7 @@ const ProgramContainer = styled.div`
 
 export default function Schedules() {
 	return (
-		<div>
+		<>
 			<Head>
 				<title>BTT Lago Vista | Schedule</title>
 				<meta name="description" content="BTT Lago Vista About" />
@@ -50,11 +56,18 @@ export default function Schedules() {
 			/>
 			<PageTitle title="Class Schedules" />
 			<Container>
-				<div className="maonrails-schedule" attr-gym="ArEjW" attr-schedule="all" attr-program="LO0qN" />
+				<ScheduleContainer>
+					<header.H2>Kids Schedule</header.H2>
+					<div className="maonrails-schedule" attr-gym="ArEjW" attr-schedule="all" attr-program="LO0qN" />
+				</ScheduleContainer>
+				<ScheduleContainer>
+					<header.H2>Adults Schedule</header.H2>
+					<div className="maonrails-schedule" attr-gym="ArEjW" attr-schedule="all" attr-program="WJ8bJ" />
+				</ScheduleContainer>
 			</Container>
 			<Testimonials />
 			<PreEnrolling />
 			<Script src="https://gymdesk.com/js/widgets.js"></Script>
-		</div>
+		</>
 	);
 }
