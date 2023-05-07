@@ -24,7 +24,7 @@ export default function Contact() {
 			<PageTitle title="CONTACT" />
 			<ContactSources />
 			<Map />
-			<Testimonials />
+			{/* <Testimonials /> */}
 			<PreEnrolling />
 		</div>
 	);

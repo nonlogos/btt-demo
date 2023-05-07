@@ -80,7 +80,7 @@ export default function Adults() {
 			</TwoColumnLayout>
 			<WhyUs />
 			<Schedule bkgdImage />
-			<Testimonials />
+			{/* <Testimonials />  */}
 			<PreEnrolling />
 		</div>
 	);

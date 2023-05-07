@@ -8,8 +8,8 @@ const containerStyle = {
 };
 
 const center = {
-	lat: 30.4756111,
-	lng: -97.9782488,
+	lat: 30.4746104,
+	lng: -97.976678,
 };
 
 const StyledMapContainer = styled.div`
@@ -21,14 +21,6 @@ export const Map = () => {
 		googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY!,
 	});
 	const [map, setMap] = useState(null);
-
-	// const onLoad = useCallback(function callback(map: any) {
-	// 	// This is just an example of getting and using the map instance!!! don't just blindly copy!
-	// 	const bounds = new window.google.maps.LatLngBounds(center);
-	// 	map.fitBounds(bounds);
-
-	// 	setMap(map);
-	// }, []);
 
 	const onUnmount = useCallback(function callback(map: any) {
 		setMap(null);

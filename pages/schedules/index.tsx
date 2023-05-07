@@ -65,7 +65,7 @@ export default function Schedules() {
 					<div className="maonrails-schedule" attr-gym="ArEjW" attr-schedule="all" attr-program="WJ8bJ" />
 				</ScheduleContainer>
 			</Container>
-			<Testimonials />
+			{/* <Testimonials /> */}
 			<PreEnrolling />
 			<Script src="https://gymdesk.com/js/widgets.js"></Script>
 		</>

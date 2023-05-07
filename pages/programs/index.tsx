@@ -73,7 +73,7 @@ export default function Programs() {
 					</ProgramContainer>
 					<ProgramContainer>
 						<header.H2>Kids Academy</header.H2>
-						<Text>6-10 yrs & 9-12 yrs (13+ will be included in adult classes)</Text>
+						<Text>6-12 yrs (13+ will be included in adult classes)</Text>
 						<Text>Gi, No-Gi, and Private Instruction Available</Text>
 						<Button>
 							<Link href="/programs/kids">Learn more</Link>
@@ -82,7 +82,7 @@ export default function Programs() {
 				</EvenGrid>
 			</Container>
 			<Schedule bkgdImage />
-			<Testimonials />
+			{/* <Testimonials /> */}
 			<PreEnrolling />
 		</div>
 	);

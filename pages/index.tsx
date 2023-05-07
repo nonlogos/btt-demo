@@ -40,9 +40,9 @@ export default function Home() {
 				contentRight
 			>
 				<Text>
-					Learn self-defense skills, lose weight, and boost your confidence as you train among champions. Whether
-					you&apos;re seasoned fighter training for a competition or a beginner looking to get fit, we&apos;ll help you
-					reach your goals no matter your age or skill level.
+					Learn self-defense skills and boost your confidence as you train among champions. Whether you&apos;re seasoned
+					fighter training for a competition or a beginner looking to get fit, we&apos;ll help you reach your goals no
+					matter your age or skill level.
 				</Text>
 				<Text>Welcome to the Team!</Text>
 			</TwoColumnLayout>
@@ -66,8 +66,8 @@ export default function Home() {
 					<Image src={bioImage} alt="Professor Israel Davila" placeholder="blur" layout="fill" objectFit="cover" />
 				)}
 				title="Instructor"
-				subtitle="Professor Israel Davila, Owner and Lead Instructor Brazilian Top Team Lago Vista"
-				actionText="Meet Isreal"
+				subtitle="Professor Israel Davila, Owner and Head Coach Brazilian Top Team Lago Vista"
+				actionText="Meet Israel"
 				actionLink="/about"
 				contentRight
 			>
@@ -82,7 +82,7 @@ export default function Home() {
 			</TwoColumnLayout>
 
 			<Schedule bkgdImage />
-			<Testimonials />
+			{/* <Testimonials /> */}
 			<PreEnrolling />
 		</div>
 	);

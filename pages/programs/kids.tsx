@@ -27,7 +27,7 @@ export default function Kids() {
 				disclaimer={disclaimer}
 			/>
 			<PageTitle title="KIDS ACADEMY">
-				<Text>6-10 yrs & 9-12 yrs (13+ will be included in adult classes)</Text>
+				<Text>6-12 yrs (13+ will be included in adult classes)</Text>
 				<Text>Gi, No-Gi, and Private Instruction Available</Text>
 			</PageTitle>
 
@@ -97,7 +97,7 @@ export default function Kids() {
 				<Text>Private lessons are offered to both members and non-members and available upon request.</Text>
 			</TwoColumnLayout>
 			<Schedule bkgdImage />
-			<Testimonials />
+			{/* <Testimonials /> */}
 			<PreEnrolling />
 		</div>
 	);

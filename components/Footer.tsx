@@ -56,7 +56,7 @@ const aboutText = () => (
 	<AboutContent>
 		<Text>
 			Brazilian Top Team (BTT) Lago Vista is a Brazilian Jiu Jitsu Academy offering beginner, intermediate, and advanced
-			classes for both adults and kiddos.
+			classes for both adults and kids.
 		</Text>
 		<Text>
 			Led by multiple-time IBJJF champion Prof. Israel Davila, BTT welcomes the Lago Vista and surrounding communities

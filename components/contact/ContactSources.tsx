@@ -4,6 +4,7 @@ import { Home, Email, AlternateEmail, LocalPhone } from '@mui/icons-material';
 import { Box } from '../Box';
 import { EvenGrid } from '../Layouts';
 import { Text } from '../Typography';
+import { SIGN_IN_URL } from '../../siteContent';
 
 const StyledContainer = styled(Box)`
 	display: flex;
@@ -59,34 +60,34 @@ export const ContactSources = () => {
 	return (
 		<StyledContainer>
 			<StyledUl>
-				<EvenGrid minWidth="300px">
+				<EvenGrid minWidth="200px">
 					<StyledItem>
 						<StyledTitleContainer>
 							<LocalPhone color="primary" />
 							<StyledTitle>Phone</StyledTitle>
 						</StyledTitleContainer>
-						<a href="tel:+1234567891">(123) 456-7891</a>
+						<a href="tel:+15122223482">(512) 222-3482</a>
 					</StyledItem>
 					<StyledItem>
 						<StyledTitleContainer>
 							<Home color="primary" />
 							<StyledTitle>Address</StyledTitle>
 						</StyledTitleContainer>
-						<address>7708 Lohman Ford Rd Suite 201 Lago Vista, TX 78645</address>
+						<address>7708 Lohman Ford Rd Suite 201E Lago Vista, TX 78645</address>
 					</StyledItem>
 					<StyledItem>
 						<StyledTitleContainer>
 							<Email color="primary" />
 							<StyledTitle>Email</StyledTitle>
 						</StyledTitleContainer>
-						<a href="mailto:john@doe.com">john@doe.com</a>
+						<a href="mailto:bttlagovista@gmail.com">bttlagovista@gmail.com</a>
 					</StyledItem>
 					<StyledItem>
 						<StyledTitleContainer>
 							<AlternateEmail color="primary" />
 							<StyledTitle>GYMDESK</StyledTitle>
 						</StyledTitleContainer>
-						<a href="#">for regular updates</a>
+						<a href="SIGN_IN_URL">for regular updates</a>
 					</StyledItem>
 				</EvenGrid>
 			</StyledUl>

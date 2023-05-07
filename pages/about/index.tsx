@@ -74,7 +74,7 @@ export default function About() {
 			</TwoColumnLayout>
 
 			<Schedule bkgdImage />
-			<Testimonials />
+			{/* <Testimonials /> */}
 			<PreEnrolling />
 		</div>
 	);
