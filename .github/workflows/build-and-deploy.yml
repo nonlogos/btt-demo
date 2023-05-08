@@ -23,6 +23,8 @@ jobs:
           npm run build
           npm run export
           touch out/.nojekyll
+        env:
+          NEXT_PUBLIC_GOOGLE_MAP_API_KEY: ${{ secrets.NEXT_PUBLIC_GOOGLE_MAP_API_KEY }}
 
       - name: Deploy
         # configure an external GitHub Pages deploy workflow here
