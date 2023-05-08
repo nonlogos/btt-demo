@@ -47,7 +47,7 @@ const HeroContent = styled.div`
 	top: 0;
 	width: 100%;
 	height: 100%;
-	padding: var(--sp-2x);
+	padding: var(--sp-2x) 0;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -63,6 +63,7 @@ const HeroContent = styled.div`
 const Title = styled(header.H2)`
 	line-height: 1.3em;
 	text-shadow: var(--lg-txt-shadow);
+	padding: 0 var(--sp-3x);
 	& span {
 		display: block;
 		font-size: 1.8em;
@@ -78,6 +79,7 @@ const Title = styled(header.H2)`
 const BodyText = styled(Text)`
 	margin-top: var(--sp-3x);
 	margin-bottom: var(--sp-6x);
+	padding: 0 var(--sp-3x);
 	font-weight: 400;
 	font-size: clamp(1.2rem, 2vmin, 1.6rem);
 	text-shadow: var(--sm-txt-shadow);
