@@ -1,11 +1,12 @@
 import Head from 'next/head';
 
-import { HeroBanner, PageTitle, Testimonials, PreEnrolling, Map } from '../../components';
+import { HeroBanner, PageTitle, PreEnrolling, Map } from '../../components';
 import { ContactSources } from '../../components/contact';
 import { homeText } from '../../siteContent';
+import bannerImage from '../../public/roll_2.jpg';
 
 const {
-	heroBanner: { title, bodyText, buttonOne, buttonTwo, disclaimer },
+	heroBanner: { disclaimer },
 } = homeText;
 
 export default function Contact() {
@@ -16,7 +17,7 @@ export default function Contact() {
 				<meta name="description" content="BTT Lago Vista Contact" />
 			</Head>
 			<HeroBanner
-				bkgdImage="roll_2"
+				bkgdImage={bannerImage.src}
 				title="Y'ALL COME BACK NOW, YA HEAR?"
 				bodyText="BRAZILIAN TOP TEAM LAGO VISTA"
 				disclaimer={disclaimer}

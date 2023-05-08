@@ -2,11 +2,12 @@ import styled from 'styled-components';
 import Head from 'next/head';
 import Script from 'next/script';
 
-import { HeroBanner, PageTitle, header, Testimonials, PreEnrolling } from '../../components';
+import { HeroBanner, PageTitle, header, PreEnrolling } from '../../components';
 import { homeText } from '../../siteContent';
+import bannerImage from '../../public/group_profile.jpg';
 
 const {
-	heroBanner: { buttonOne, buttonTwo, disclaimer },
+	heroBanner: { disclaimer },
 } = homeText;
 
 const Container = styled.section`
@@ -48,7 +49,7 @@ export default function Schedules() {
 				<meta name="description" content="BTT Lago Vista About" />
 			</Head>
 			<HeroBanner
-				bkgdImage="group_profile"
+				bkgdImage={bannerImage.src}
 				title="AWAKEN YOUR INNER CHAMPION AT BTT LAGO VISTA"
 				bodyText="Build Confidence. Gain Strength. Take Charge."
 				showButtonTwo={false}

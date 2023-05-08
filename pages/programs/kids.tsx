@@ -8,9 +8,10 @@ import kidsBoyImage from '../../public/kids_boy.jpg';
 import kidsBoyImageTwo from '../../public/kids_boy_2.jpg';
 import kidsGirlImage from '../../public/kids_girl.jpg';
 import giImage from '../../public/roll_3.jpg';
+import bannerImage from '../../public/group_kids.jpg';
 
 const {
-	heroBanner: { buttonOne, buttonTwo, disclaimer },
+	heroBanner: { disclaimer },
 } = homeText;
 
 export default function Kids() {
@@ -21,7 +22,7 @@ export default function Kids() {
 				<meta name="description" content="BTT Lago Vista Adults Program" />
 			</Head>
 			<HeroBanner
-				bkgdImage="group_kids"
+				bkgdImage={bannerImage.src}
 				title="A PATH TO A MORE CONFIDENT LIFE"
 				bodyText="Empower your child with the skills of self-defense, discipline, and impenetrable confidence."
 				disclaimer={disclaimer}

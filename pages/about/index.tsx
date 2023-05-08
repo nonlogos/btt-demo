@@ -6,9 +6,10 @@ import { homeText } from '../../siteContent';
 import actionsImage from '../../public/roll_5.jpg';
 import champImage from '../../public/champ.jpg';
 import bioImage from '../../public/bio.jpg';
+import bannerImage from '../../public/roll_feature.jpg';
 
 const {
-	heroBanner: { buttonOne, buttonTwo, disclaimer },
+	heroBanner: { disclaimer },
 } = homeText;
 
 export default function About() {
@@ -19,7 +20,7 @@ export default function About() {
 				<meta name="description" content="BTT Lago Vista About" />
 			</Head>
 			<HeroBanner
-				bkgdImage="roll_feature"
+				bkgdImage={bannerImage.src}
 				title="TRAIN AT THE ULTIMATE BRAZILIAN JIU-JITSU ACADEMY IN LAGO VISTA"
 				bodyText="Led by experienced black belt & multiple-time IBJJF champion, Israel Davila"
 				disclaimer={disclaimer}

@@ -16,7 +16,7 @@ interface HeroBannerProps {
 const HeroBannerContainer = styled.section`
 	--max-height: 620px;
 	position: relative;
-	background-image: ${({ bkgdImage }: Partial<HeroBannerProps>) => `url('/${bkgdImage}.jpg');`};
+	background-image: ${({ bkgdImage }: Partial<HeroBannerProps>) => `url(${bkgdImage});`};
 	background-position: 36% 61%;
 	background-repeat: no-repeat;
 	background-size: cover;

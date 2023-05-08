@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
-import { Box, header, Text, Disclaimer, Button } from '.';
+import { Box, header, Text, Disclaimer } from '.';
 import { ActionsContainer } from './ActionsContainer';
+import groupImage from '../../public/group_profile.jpg';
+
 interface ScheduleProps {
 	bkgdImage?: boolean;
 }
@@ -12,7 +14,7 @@ const Container = styled(Box)`
 	gap: var(--sp-2x);
 	padding-top: 40%;
 	padding-bottom: 20%;
-	background: ${({ bkgdImage }: ScheduleProps) => bkgdImage && "url('/group_profile.jpg')"};
+	background: ${({ bkgdImage }: ScheduleProps) => bkgdImage && `url(${groupImage.src})`};
 	background-position: 50% 0%;
 	background-repeat: no-repeat;
 	background-size: contain;

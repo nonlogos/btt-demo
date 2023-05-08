@@ -15,6 +15,7 @@ import { homeText } from '../../siteContent';
 import noGiImage from '../../public/no_gi.jpg';
 import giImage from '../../public/roll_4.jpg';
 import giImageTwo from '../../public/roll_2.jpg';
+import bannerImage from '../../public/roll_5.jpg';
 
 const {
 	heroBanner: { buttonOne, buttonTwo, disclaimer },
@@ -28,7 +29,7 @@ export default function Adults() {
 				<meta name="description" content="BTT Lago Vista Adults Program" />
 			</Head>
 			<HeroBanner
-				bkgdImage="roll_5"
+				bkgdImage={bannerImage.src}
 				title="Build confidence. Gain Strength. Get after it"
 				bodyText="Empower yourself at the Ultimate Brazilian Jiu-Jitsu Training Destination in Lago Vista."
 				disclaimer={disclaimer}

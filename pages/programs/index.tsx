@@ -14,6 +14,7 @@ import {
 	Button,
 } from '../../components';
 import { homeText } from '../../siteContent';
+import bannerImage from '../../public/roll_3.jpg';
 
 const {
 	heroBanner: { buttonOne, buttonTwo, disclaimer },
@@ -51,7 +52,7 @@ export default function Programs() {
 				<meta name="description" content="BTT Lago Vista About" />
 			</Head>
 			<HeroBanner
-				bkgdImage="roll_3"
+				bkgdImage={bannerImage.src}
 				title="Build confidence. Gain Strength. Get after it"
 				bodyText="Empower yourself at the Ultimate Brazilian Jiu-Jitsu Training Destination in Lago Vista."
 				disclaimer={disclaimer}
