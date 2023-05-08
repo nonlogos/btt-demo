@@ -6,6 +6,8 @@ import { header, Text, Disclaimer } from '..';
 import { oswald } from '../../utils';
 import vid from '../../public/hero_vid.mp4';
 
+console.log('vid', vid);
+
 interface HeroBannerProps {
 	title: string;
 	bodyText?: string;
@@ -90,7 +92,7 @@ export const HomeHeroBanner = ({ title, bodyText, disclaimer }: HeroBannerProps)
 	return (
 		<HeroBannerContainer>
 			<HeroVidBg className="hero-bkgd" ref={heroVid} autoPlay loop muted playsInline preload="auto">
-				<source src={vid.src} type="video/mp4" />
+				<source src="hero_vid.mp4" type="video/mp4" />
 				Your browser does not support the video tag.
 			</HeroVidBg>
 			<HeroContent>

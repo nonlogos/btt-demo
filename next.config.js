@@ -2,8 +2,8 @@
 
 const isGithubActions = process.env.GITHUB_ACTIONS || false;
 
-let assetPrefix = '';
-let basePath = '/';
+let assetPrefix = null;
+let basePath = '';
 
 if (isGithubActions) {
 	// trim off `<owner>/`
@@ -24,7 +24,6 @@ const nextConfig = {
 		unoptimized: true,
 	},
 	webpack: (config, { isServer }) => {
-		const prefix = config.assetPrefix ?? config.basePath ?? '';
 		config.module.rules.push({
 			test: /\.(mp4|pdf|webm)$/,
 			type: 'asset',

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { Box, header, Text, Disclaimer } from '.';
 import { ActionsContainer } from './ActionsContainer';
-import groupImage from '../../public/group_profile.jpg';
+import groupImage from '../public/group_profile.jpg';
 
 interface ScheduleProps {
 	bkgdImage?: boolean;
