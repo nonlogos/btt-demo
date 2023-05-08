@@ -40,7 +40,7 @@ const HeroContent = styled.div`
 	top: 0;
 	width: 100%;
 	height: 100%;
-	padding: var(--sp-3x);
+	padding: var(--sp-3x) 0;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -60,6 +60,7 @@ const Title = styled.p`
 	text-transform: uppercase;
 	font-weight: 700;
 	max-width: 31ch;
+	padding: 0 var(--sp-3x);
 	@media (max-width: 850px) {
 		display: inline-block;
 		line-height: 1.7rem;
@@ -69,7 +70,7 @@ const Title = styled.p`
 
 const Subtitle = styled.span`
 	display: block;
-	padding-top: var(--sp-2x);
+	padding: var(--sp-2x) var(--sp-3x) 0 var(--sp-3x);
 	font-size: 0.7em;
 	line-height: 0.7em;
 	@media (max-width: 850px) {
@@ -81,6 +82,7 @@ const Subtitle = styled.span`
 const BodyText = styled(Text)`
 	margin-top: var(--sp-3x);
 	margin-bottom: var(--sp-6x);
+	padding: 0 var(--sp-3x);
 	font-size: 1rem;
 	line-height: 1.2rem;
 	font-weight: 400;
@@ -90,14 +92,6 @@ const BodyText = styled(Text)`
 		display: inline-block;
 		font-size: 1em;
 		line-height: 1em;
-	}
-`;
-const ActionsContianer = styled.div`
-	display: flex;
-	margin-top: var(--sp-4x);
-	gap: var(--sp-2x);
-	& button {
-		box-shadow: var(--box-shadow);
 	}
 `;
 

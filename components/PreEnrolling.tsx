@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import { Box, header, Text, Disclaimer, Button } from './';
 import { SIGN_UP_URL } from '../siteContent';
+import bannerImage from '../public/pre_enroll.jpg';
 
 const Container = styled(Box)`
 	position: relative;
@@ -11,7 +12,7 @@ const Container = styled(Box)`
 	height: 30rem;
 	padding: var(--sp-2x);
 	text-align: center;
-	background: linear-gradient(to bottom, white 5%, #7b929c 98%), url('/group_kids.jpg');
+	background: ${() => `linear-gradient(to bottom, white 5%, #7b929c 98%), url(${bannerImage.src});`}
 	background-blend-mode: hard-light;
 	background-position: 48% -5%;
 	background-repeat: no-repeat;

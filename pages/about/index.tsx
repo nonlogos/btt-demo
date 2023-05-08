@@ -5,7 +5,7 @@ import { HeroBanner, PageTitle, TwoColumnLayout, Schedule, Testimonials, PreEnro
 import { homeText } from '../../siteContent';
 import actionsImage from '../../public/roll_5.jpg';
 import champImage from '../../public/champ.jpg';
-import bioImage from '../../public/bio.jpg';
+import bioImage from '../../public/bio_2.jpg';
 import bannerImage from '../../public/roll_feature.jpg';
 
 const {

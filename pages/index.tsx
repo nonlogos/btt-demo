@@ -7,7 +7,7 @@ import { HomeHeroBanner } from '../components/home';
 import { homeText } from '../siteContent';
 import adultsProgramImage from '../public/roll_feature.jpg';
 import kidsProgramImage from '../public/kids_girl.jpg';
-import bioImage from '../public/bio.jpg';
+import bioImage from '../public/bio_2.jpg';
 
 const {
 	heroBanner: { title, bodyText, disclaimer },
