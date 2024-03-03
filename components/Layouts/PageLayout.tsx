@@ -5,11 +5,7 @@ import { Footer } from '../Footer';
 import { MobileNavBar } from '../MobileNavBar';
 import { homeText } from '../../siteContent';
 import { useIsMobile } from '../../hooks';
-const {
-	newsBanner,
-	heroBanner: { title, bodyText, buttonOne, buttonTwo, disclaimer },
-	taglineBanner: { title: taglineTitle, bodyText: taglineBodyText },
-} = homeText;
+const { newsBanner } = homeText;
 
 const Main = styled.main`
 	display: grid;
