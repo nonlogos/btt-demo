@@ -16,7 +16,7 @@ You can start editing the page by modifying `pages/index.tsx`. The page auto-upd
 
 [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages. It's not currently used for this static site, but I left some boilerplate if it's needed later.
 
 ## Learn More
 
@@ -27,8 +27,8 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The site is currently deployed on [Github Pages](https://pages.github.com/). You can manage the deployment on [project setting](https://github.com/nonlogos/btt-demo/settings/pages). The Built code are in `gh-pages`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The site will automatically build and deploy when you push / merge to the **main** branch using [this script](https://github.com/nonlogos/btt-demo/blob/main/.github/workflows/build-and-deploy.yml).
